@@ -1,0 +1,294 @@
+pg_dump: leyendo las extensiones
+pg_dump: identifying extension members
+pg_dump: leyendo esquemas
+pg_dump: leyendo las tablas definidas por el usuario
+pg_dump: leyendo las funciones definidas por el usuario
+pg_dump: leyendo los tipos definidos por el usuario
+pg_dump: leyendo los lenguajes procedurales
+pg_dump: leyendo las funciones de agregación definidas por el usuario
+pg_dump: leyendo los operadores definidos por el usuario
+pg_dump: leyendo las clases de operadores definidos por el usuario
+pg_dump: leyendo las familias de operadores definidas por el usuario
+pg_dump: leyendo los procesadores (parsers) de búsqueda en texto definidos
+por el usuario
+pg_dump: leyendo las plantillas de búsqueda en texto definidas por el usuario
+pg_dump: leyendo los diccionarios de búsqueda en texto definidos por el usuario
+pg_dump: leyendo las configuraciones de búsqueda en texto definidas por el usuario
+pg_dump: leyendo los conectores de datos externos definidos por el usuario
+pg_dump: leyendo los servidores foráneos definidas por el usuario
+pg_dump: leyendo los privilegios por omisión
+pg_dump: leyendo los ordenamientos definidos por el usuario
+pg_dump: leyendo las conversiones definidas por el usuario
+pg_dump: leyendo conversiones de tipo
+pg_dump: leyendo las transformaciones
+pg_dump: leyendo la información de herencia de las tablas
+pg_dump: leyendo los disparadores por eventos
+pg_dump: finding extension tables
+pg_dump: buscando relaciones de herencia
+pg_dump: leyendo la información de columnas para las tablas interesantes
+pg_dump: buscando las columnas y tipos de la tabla «kernel._action_»
+pg_dump: buscando expresiones por omisión de la tabla «kernel._action_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «kernel._action_»
+pg_dump: buscando las columnas y tipos de la tabla «kernel._app_»
+pg_dump: buscando expresiones por omisión de la tabla «kernel._app_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «kernel._app_»
+pg_dump: buscando las columnas y tipos de la tabla «kernel._catalog_»
+pg_dump: buscando expresiones por omisión de la tabla «kernel._catalog_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «kernel._catalog_»
+pg_dump: buscando las columnas y tipos de la tabla «kernel._department_»
+pg_dump: buscando expresiones por omisión de la tabla «kernel._department_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «kernel._department_»
+pg_dump: buscando las columnas y tipos de la tabla «kernel._enterprise_»
+pg_dump: buscando expresiones por omisión de la tabla «kernel._enterprise_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «kernel._enterprise_»
+pg_dump: buscando las columnas y tipos de la tabla «kernel._profile_»
+pg_dump: buscando expresiones por omisión de la tabla «kernel._profile_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «kernel._profile_»
+pg_dump: buscando las columnas y tipos de la tabla «kernel._user_»
+pg_dump: buscando expresiones por omisión de la tabla «kernel._user_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «kernel._user_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._patient_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._patient_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._patient_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._doctor_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._doctor_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._doctor_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._expense_form_tariff_detail_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._expense_form_tariff_detail_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._medicine_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._medicine_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._medicine_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._ambulance_use_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._ambulance_use_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._ambulance_use_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._expense_form_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._expense_form_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._expense_form_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._form_008_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._form_008_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._form_008_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._fur_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._fur_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._fur_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._objection_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._objection_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._objection_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._oxygen_use_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._oxygen_use_»
+pg_dump: buscando restricciones de revisión (check) para la tabla «soat._oxygen_use_»
+pg_dump: buscando las columnas y tipos de la tabla «kernel._profile_has_action_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._audit_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._audit_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._canton_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._expense_form_medicine_detail_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._expense_form_medicine_detail_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._form008_has_doctor_»
+pg_dump: buscando expresiones por omisión de la tabla «soat._form008_has_doctor_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._parish_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._province_»
+pg_dump: buscando las columnas y tipos de la tabla «soat._tariff_»
+pg_dump: buscando las columnas y tipos de la tabla «soat.ambulance_use»
+pg_dump: buscando las columnas y tipos de la tabla «soat.monthly_statistics»
+pg_dump: buscando las columnas y tipos de la tabla «soat.oxigen_use»
+pg_dump: buscando las columnas y tipos de la tabla «soat.oxygen_use»
+pg_dump: marcando las columnas heredadas en las subtablas
+pg_dump: leyendo los índices
+pg_dump: extrayendo los índices para la tabla «kernel._action_»
+pg_dump: extrayendo los índices para la tabla «kernel._app_»
+pg_dump: extrayendo los índices para la tabla «kernel._catalog_»
+pg_dump: extrayendo los índices para la tabla «kernel._department_»
+pg_dump: extrayendo los índices para la tabla «kernel._enterprise_»
+pg_dump: extrayendo los índices para la tabla «kernel._profile_»
+pg_dump: extrayendo los índices para la tabla «kernel._user_»
+pg_dump: extrayendo los índices para la tabla «soat._patient_»
+pg_dump: extrayendo los índices para la tabla «soat._doctor_»
+pg_dump: extrayendo los índices para la tabla «soat._expense_form_tariff_detail_»
+pg_dump: extrayendo los índices para la tabla «soat._medicine_»
+pg_dump: extrayendo los índices para la tabla «soat._ambulance_use_»
+pg_dump: extrayendo los índices para la tabla «soat._expense_form_»
+pg_dump: extrayendo los índices para la tabla «soat._form_008_»
+pg_dump: extrayendo los índices para la tabla «soat._fur_»
+pg_dump: extrayendo los índices para la tabla «soat._objection_»
+pg_dump: extrayendo los índices para la tabla «soat._oxygen_use_»
+pg_dump: extrayendo los índices para la tabla «kernel._profile_has_action_»
+pg_dump: extrayendo los índices para la tabla «soat._audit_»
+pg_dump: extrayendo los índices para la tabla «soat._canton_»
+pg_dump: extrayendo los índices para la tabla «soat._expense_form_medicine_detail_»
+pg_dump: extrayendo los índices para la tabla «soat._form008_has_doctor_»
+pg_dump: extrayendo los índices para la tabla «soat._parish_»
+pg_dump: extrayendo los índices para la tabla «soat._province_»
+pg_dump: extrayendo los índices para la tabla «soat._tariff_»
+pg_dump: leyendo las restricciones
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._action_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._app_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._catalog_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._department_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._enterprise_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._profile_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._user_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._patient_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._doctor_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._expense_form_tariff_detail_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._medicine_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._ambulance_use_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._expense_form_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._form_008_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._fur_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._objection_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._oxygen_use_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «kernel._profile_has_action_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._canton_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._expense_form_medicine_detail_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._form008_has_doctor_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._parish_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._province_»
+pg_dump: extrayendo restricciones de llave foránea para la tabla «soat._tariff_»
+pg_dump: leyendo los disparadores (triggers)
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._action_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._app_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._catalog_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._department_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._enterprise_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._profile_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._user_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._patient_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._doctor_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._expense_form_tariff_detail_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._medicine_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._ambulance_use_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._expense_form_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._form_008_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._fur_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._objection_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._oxygen_use_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «kernel._profile_has_action_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._canton_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._expense_form_medicine_detail_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._form008_has_doctor_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._parish_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._province_»
+pg_dump: extrayendo los disparadores (triggers) para la tabla «soat._tariff_»
+pg_dump: leyendo las reglas de reescritura
+pg_dump: leyendo políticas
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._action_»
+pg_dump: extrayendo las políticas para la tabla «kernel._action_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._app_»
+pg_dump: extrayendo las políticas para la tabla «kernel._app_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._catalog_»
+pg_dump: extrayendo las políticas para la tabla «kernel._catalog_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._department_»
+pg_dump: extrayendo las políticas para la tabla «kernel._department_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._enterprise_»
+pg_dump: extrayendo las políticas para la tabla «kernel._enterprise_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._profile_»
+pg_dump: extrayendo las políticas para la tabla «kernel._profile_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._user_»
+pg_dump: extrayendo las políticas para la tabla «kernel._user_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._patient_»
+pg_dump: extrayendo las políticas para la tabla «soat._patient_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._doctor_»
+pg_dump: extrayendo las políticas para la tabla «soat._doctor_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._expense_form_tariff_detail_»
+pg_dump: extrayendo las políticas para la tabla «soat._expense_form_tariff_detail_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._medicine_»
+pg_dump: extrayendo las políticas para la tabla «soat._medicine_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._ambulance_use_»
+pg_dump: extrayendo las políticas para la tabla «soat._ambulance_use_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._expense_form_»
+pg_dump: extrayendo las políticas para la tabla «soat._expense_form_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._form_008_»
+pg_dump: extrayendo las políticas para la tabla «soat._form_008_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._fur_»
+pg_dump: extrayendo las políticas para la tabla «soat._fur_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._objection_»
+pg_dump: extrayendo las políticas para la tabla «soat._objection_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._oxygen_use_»
+pg_dump: extrayendo las políticas para la tabla «soat._oxygen_use_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._app__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «kernel._app__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._catalog__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «kernel._catalog__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._department__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «kernel._department__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._enterprise__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «kernel._enterprise__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._profile__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «kernel._profile__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._profile_has_action_»
+pg_dump: extrayendo las políticas para la tabla «kernel._profile_has_action_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel._user__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «kernel._user__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «kernel.action_identifier_sequence»
+pg_dump: extrayendo las políticas para la tabla «kernel.action_identifier_sequence»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._ambulance_use__identifier__seq»
+pg_dump: extrayendo las políticas para la tabla «soat._ambulance_use__identifier__seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._audit_»
+pg_dump: extrayendo las políticas para la tabla «soat._audit_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._audit__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._audit__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._canton_»
+pg_dump: extrayendo las políticas para la tabla «soat._canton_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._doctor__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._doctor__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._expense_form__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._expense_form__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._expense_form_medicine_detail_»
+pg_dump: extrayendo las políticas para la tabla «soat._expense_form_medicine_detail_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._expense_form_medicine_detail__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._expense_form_medicine_detail__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._expense_form_tariff_detail__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._expense_form_tariff_detail__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._form008_has_doctor_»
+pg_dump: extrayendo las políticas para la tabla «soat._form008_has_doctor_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._form_008__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._form_008__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._fur__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._fur__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._medicine__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._medicine__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._oxygen_use__identifier_seq»
+pg_dump: extrayendo las políticas para la tabla «soat._oxygen_use__identifier_seq»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._parish_»
+pg_dump: extrayendo las políticas para la tabla «soat._parish_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._province_»
+pg_dump: extrayendo las políticas para la tabla «soat._province_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat._tariff_»
+pg_dump: extrayendo las políticas para la tabla «soat._tariff_»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat.ambulance_use»
+pg_dump: extrayendo las políticas para la tabla «soat.ambulance_use»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat.monthly_statistics»
+pg_dump: extrayendo las políticas para la tabla «soat.monthly_statistics»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat.oxigen_use»
+pg_dump: extrayendo las políticas para la tabla «soat.oxigen_use»
+pg_dump: leyendo si seguridad de filas está activa para la tabla «soat.oxygen_use»
+pg_dump: extrayendo las políticas para la tabla «soat.oxygen_use»
+pg_dump: leyendo objetos grandes
+pg_dump: obteniendo datos de dependencias
+pg_dump: salvando codificaciones = UTF8
+pg_dump: salvando standard_conforming_strings = on
+pg_dump: salvando las definiciones de la base de datos
+pg_dump: extrayendo el contenido de la tabla «kernel._action_»
+pg_dump: extrayendo el contenido de la tabla «kernel._app_»
+pg_dump: extrayendo el contenido de la tabla «kernel._catalog_»
+pg_dump: extrayendo el contenido de la tabla «kernel._department_»
+pg_dump: extrayendo el contenido de la tabla «kernel._enterprise_»
+pg_dump: extrayendo el contenido de la tabla «kernel._profile_»
+pg_dump: extrayendo el contenido de la tabla «kernel._profile_has_action_»
+pg_dump: extrayendo el contenido de la tabla «kernel._user_»
+pg_dump: extrayendo el contenido de la tabla «soat._ambulance_use_»
+pg_dump: extrayendo el contenido de la tabla «soat._audit_»
+pg_dump: extrayendo el contenido de la tabla «soat._canton_»
+pg_dump: extrayendo el contenido de la tabla «soat._doctor_»
+pg_dump: extrayendo el contenido de la tabla «soat._expense_form_»
+pg_dump: extrayendo el contenido de la tabla «soat._expense_form_medicine_detail_»
+pg_dump: extrayendo el contenido de la tabla «soat._expense_form_tariff_detail_»
+pg_dump: extrayendo el contenido de la tabla «soat._form008_has_doctor_»
+pg_dump: extrayendo el contenido de la tabla «soat._form_008_»
+pg_dump: extrayendo el contenido de la tabla «soat._fur_»
+pg_dump: extrayendo el contenido de la tabla «soat._medicine_»
+pg_dump: extrayendo el contenido de la tabla «soat._objection_»
+pg_dump: extrayendo el contenido de la tabla «soat._oxygen_use_»
+pg_dump: extrayendo el contenido de la tabla «soat._parish_»
+pg_dump: extrayendo el contenido de la tabla «soat._patient_»
+pg_dump: extrayendo el contenido de la tabla «soat._province_»
+pg_dump: extrayendo el contenido de la tabla «soat._tariff_»

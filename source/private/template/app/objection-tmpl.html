@@ -1,0 +1,87 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-12 columns" style="font-weight: bold">
+            OBJECION
+        </div>
+        <hr/>
+    </div>
+    <br>
+    <div class="row">
+        <div class="small-6 columns">
+            <label>
+                {{$$elements.number.title}}
+                <input type="text" readonly value="{{$$entity.number}}"/>
+                <!--<input-element data-element-type="text" data-element="$$elements.number" data-ng-model="$$entity.number"></input-element>-->
+            </label>
+        </div>
+        <div class="small-6 columns">
+            <label>
+                {{$$elements.invoice.title}}
+                <input-element data-element-type="text" data-element="$$elements.invoice" data-ng-model="$$entity.invoice" data-only-numbers maxlength="19"></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <!--<div class="small-12 columns">-->
+        <table class="small-12 columns">
+            <thead>
+                <tr>
+                    <th>CODIGO</th>
+                    <th>DETALLE</th>
+                    <th>CANTIDAD</th>
+                    <th>C/U</th>
+                    <th>TOTAL PLANILLADO</th>
+                    <th>VALOR OBJETADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="det in $$detail">
+                    <td>{{det.item_code}}</td>
+                    <td>{{det.item_description}}</td>
+                    <td>{{det.quantity}}</td>
+                    <td>{{det.unit_value}}</td>
+                    <td>{{det.total_value}}</td>
+                    <td><input ng-model="det.objecion_value" data-only-numbers data-decimal ng-change="$$tinyEntity.populate()"/></td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th colspan="4">TOTALES</th>
+                    <th>{{$$layout.valorPlanillado | number:4}}</th>
+                    <th>{{$$entity.value | number:4}}</th>
+                </tr>
+            </thead>
+        </table>
+        <!--</div>-->
+    </div>
+    <!--    <div class="row">
+            <div class="small-4 columns">
+                <label>
+                    Valor planillado
+                    <input type="text" readonly value="{{$$layout.valorPlanillado | currency: ''}}"/>
+                    <input-element data-element-type="decimal" data-element="$$elements.value" data-ng-model="$$entity.value"></input-element>
+                </label>
+            </div>
+            <div class="small-4 columns">
+                <label>
+                    {{$$elements.value.title}}
+                    <input-element data-element-type="decimal" data-element="$$elements.value" data-ng-model="$$entity.value" data-only-currency></input-element>
+                </label>
+            </div>
+            <div class="small-4 columns">
+                <label>
+                    Nuevo saldo
+                    <input type="text" readonly value="{{($$layout.valorPlanillado - $$entity.value) | currency: ''}}"/>
+                </label>
+            </div>
+        </div>-->
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description"></input-element>
+            </label>
+        </div>
+    </div>
+    <span data-custom-valiadation="$$layout.validateValues()"></span>
+</form-handler>

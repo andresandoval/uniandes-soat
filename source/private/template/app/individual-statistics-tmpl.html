@@ -1,0 +1,53 @@
+<div style="width: 100%; height: 100%;">
+    <div class="row" style="height:70px;">
+        <div class="small-3 columns small-offset-1">
+            <label>
+                Desde:
+                <input type="date" ng-model="$$entity.desde" data-ng-change="$$layout.changeSrc()"/>
+            </label>
+        </div>
+        <div class="small-3 columns">
+            <label>
+                Hasta:
+                <input type="date" ng-model="$$entity.hasta" min="{{$$entity.desde| date:'yyyy-MM-dd'}}" data-ng-change="$$layout.changeSrc()"/>
+            </label>
+        </div>
+        <div class="small-4 columns end">
+            <label>
+                Item:
+                <ui-select data-ng-model="$$entity.item" style="margin: 0" ng-change="$$layout.changeSrc()">
+                    <ui-select-match placeholder="Seleccionar...">
+                        <div style="overflow: hidden; text-overflow: ellipsis; max-width: 578px">
+                            {{$select.selected.code}} - {{$select.selected.name}}
+                        </div>
+                    </ui-select-match>
+                    <ui-select-choices data-repeat="data in $$layout.lista | filter: { name : $select.search } | orderBy: '+name'" group-by="'group'">
+                        {{data.code}} - {{data.name}}
+                    </ui-select-choices>
+                </ui-select>
+            </label>
+        </div>
+    </div>
+    <div class="row" style="height: calc(100% - 130px); margin: 0" data-ng-if="$$layout.src !== null">
+        <!--<div class="small-12 columns" style="height: 100%; width: 125%;">-->
+            <iframe class="small-12 columns" id="printIframe" name="printIframe"  data-ng-src="{{$$layout.src}}" frameborder="0" style="width: 100%; height: 100%; border: 0; margin: 0; padding: 0;"></iframe>
+        <!--</div>-->
+    </div>
+    <div class="row" data-ng-if="$$layout.src === null">
+        <div class="small-11 small-centered columns panel callout text-center">
+            Debes seleccionar un rango de fecha y un tipo de reporte... {{$$layout.src}}
+        </div>
+    </div>
+    <div class="row" style="height: 60px">
+        <div class="small-4 columns small-offset-2 text-center">
+            <button class="button primary round" data-ng-click="$$layout.printIframe()" style="margin-top: 5px">
+                <i class="fa fa-print fa-lg"></i> Imprimir
+            </button>
+        </div>
+        <div class="small-4 columns text-center end">
+            <a class="button success round" download="reporte.csv" data-ng-href="{{$$layout.csv}}" style="margin-top: 5px">
+                <i class="fa fa-file-excel-o fa-lg"></i> Descargar
+            </a>
+        </div>
+    </div>
+</div>

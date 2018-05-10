@@ -1,0 +1,40 @@
+<br/>
+<div class="row animated zoomIn">
+    <div class="medium-8 small-11 columns small-centered panel">
+        <form-handler data-on-change="tinyEntity.populate()" data-no-layout>
+            <div class="row">
+                <div class="small-12 columns">
+                    <h4 data-ng-bind="page.app.title + ' - Inicio de sesión'">Loading page..</h4>
+                    <hr/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="row collapse">
+                        <label>{{elements.login.title}}</label>
+                        <div class="small-10 columns">
+                            <input-element data-element-type="text" data-element="elements.login" data-ng-model="entity.login" autofocus></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix"><i class="fa fa-user fa-lg"></i></span>
+                        </div>
+                    </div>
+                    <div class="row collapse">
+                        <label>{{elements.password.title}}</label>
+                        <div class="small-10 columns">
+                            <input-element data-element-type="simple-password" data-element="elements.password" data-ng-model="entity.password"></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix"><i class="fa fa-key fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <button class="button success radius expand" style="font-size: 18px !important" data-perform-action="page.operations.login" data-form-handler-submit data-callback="page.start()" data-data="tinyEntity.data"></button>
+                </div>
+            </div>
+        </form-handler>
+    </div>
+</div>

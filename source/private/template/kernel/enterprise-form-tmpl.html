@@ -1,0 +1,63 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-11 columns">
+            <label>
+                {{$$elements.identity_number.title}}
+                <input-element data-element-type="ruc" data-element="$$elements.identity_number" data-ng-model="$$entity.identity_number"></input-element>
+            </label>
+        </div>
+        <div class="small-1 columns">
+            <input-element data-element-type="switch" data-element="$$elements.active" data-ng-model="$$entity.active"></input-element>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-6 columns">
+            <label>
+                {{$$elements.name.title}}
+                <input-element only-letters data-element-type="text" data-element="$$elements.name" data-ng-model="$$entity.name"></input-element>
+            </label>
+        </div>
+        <div class="small-6 columns">
+            <label>
+                {{$$elements.business_name.title}}
+                <input-element only-letters data-element-type="text" data-element="$$elements.business_name" data-ng-model="$$entity.business_name"></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.law_representative.title}}
+                <input-element data-element-type="text" data-element="$$elements.law_representative" data-ng-model="$$entity.law_representative"></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-4 columns">
+            <label>
+                {{$$elements.address.title}}
+                <input-element data-element-type="text" data-element="$$elements.address" data-ng-model="$$entity.address"></input-element>
+            </label>
+        </div>
+        <div class="small-4 columns">
+            <label>
+                {{$$elements.phone.title}}
+                <input-element only-numbers data-element-type="phone" data-element="$$elements.phone" data-ng-model="$$entity.phone"></input-element>
+            </label>
+        </div>
+        <div class="small-4 columns">
+            <label>
+                {{$$elements.email.title}}
+                <input-element data-element-type="email" data-element="$$elements.email" data-ng-model="$$entity.email"></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description" rows="4"></input-element>
+            </label>
+        </div>
+    </div>
+</form-handler>

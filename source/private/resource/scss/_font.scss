@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'RobotoRegular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('RobotoRegular'), url(../fonts/RobotoRegular.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?aht2of');
+	src:url('../fonts/icomoon.eot?aht2of#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?aht2of') format('truetype'),
+		url('../fonts/icomoon.woff?aht2of') format('woff'),
+		url('../fonts/icomoon.svg?aht2of#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

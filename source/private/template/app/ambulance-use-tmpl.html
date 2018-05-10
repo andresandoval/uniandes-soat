@@ -1,0 +1,168 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-12 columns small-centered">
+            <div class="row">
+                <div class="small-11 columns" style="font-weight: bold">
+                    CALCULO DE USO DE AMBULANCIAS INSTITUCIONALES
+                </div>
+                <div class="small-1 columns">
+                    <button-icon class="button postfix secondary" data-perform-action="$$operations.retrieveAmbulanceUseTariffList" data-auto-play data-acknowledgement="false" data-callback="$$layout.tariffList.populate($$data)"></button-icon>
+                </div>
+            </div>
+            <hr/>
+            <div class="row panel">
+                <div class="small-12 columns">
+                    <div class="row">
+                        <div class="small-6 columns">
+                            <label>
+                                {{$$elements.autorization_number.title}}
+                                <input type="text" value="Automático" readonly>
+                                <!--<input-element data-element-type="text" data-element="$$elements.autorization_number" value="Automático" readonly></input-element>-->
+                            </label>
+                        </div>
+                        <div class="small-6 columns">
+                            <label>
+                                {{$$elements.city.title}}
+                                <input-element data-element-type="text" data-element="$$elements.city" data-ng-model="$$entity.city"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-4 columns">
+                            <label>
+                                {{$$elements.km_out.title}}
+                                <input-element data-element-type="text" data-element="$$elements.km_out" data-ng-model="$$entity.km_out" maxlength="6"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <label>
+                                {{$$elements.km_in.title}}
+                                <input-element data-element-type="decimal" data-element="$$elements.km_in" data-ng-model="$$entity.km_in" maxlength="6"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <label>
+                                Total Km (KM)
+                                <input type="text" readonly value="{{$$entity.km_diff}}"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row panel">
+                <div class="small-12 columns">
+                    <div class="row">
+                        <div class="small-6 columns">
+                            <label>
+                                {{$$elements.starting_point.title}}
+                                <ui-select data-ng-model="$$layout.starting_point" data-select2-element="$$elements.starting_point">
+                                    <ui-select-match placeholder="{{$$elements.starting_point.title}}..." allow-clear>
+                                        {{$select.selected.code}} - {{$select.selected.description}}
+                                    </ui-select-match>
+                                    <ui-select-choices data-repeat="data in $$layout.tariffList.data | filter: { description : $select.search } | orderBy: '+description'" data-group-by="'type'">
+                                        {{data.code}} - {{data.description}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </label>
+                        </div>
+                        <div class="small-6 columns">
+                            <div class="row">
+                                <div class="small-3 columns">
+                                    <label>
+                                        UVR
+                                        <input type="text" readonly value="{{$$entity.starting_point_uvr}}"/>
+                                    </label>
+                                </div>
+                                <div class="small-3 columns">
+                                    <label>
+                                        FCM
+                                        <input type="text" readonly value="{{$$entity.starting_point_fcm}}"/>
+                                    </label>
+                                </div>
+                                <div class="small-3 columns end">
+                                    <label>
+                                        VI
+                                        <input type="text" readonly value="{{$$entity.starting_point_value}}"/>
+                                    </label>
+                                </div>
+                                <div class="small-3 columns end">
+                                    <label>
+                                        ST
+                                        <input type="text" readonly value="{{$$entity.starting_point_value}}"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="border-bottom: 1px solid #aaa">
+                        <div class="small-6 columns">
+                            <label>
+                                {{$$elements.ambulance_km.title}}
+                                <ui-select data-ng-model="$$layout.ambulance_km" data-select2-element="$$elements.ambulance_km">
+                                    <ui-select-match placeholder="{{$$elements.ambulance_km.title}}..." allow-clear>
+                                        {{$select.selected.code}} - {{$select.selected.description}}
+                                    </ui-select-match>
+                                    <ui-select-choices data-repeat="data in $$layout.tariffList.data | filter: { description : $select.search } | orderBy: '+description'" data-group-by="'type'">
+                                        {{data.code}} - {{data.description}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </label>
+                        </div>
+                        <div class="small-6 columns">
+                            <div class="row">
+                                <div class="small-3 columns">
+                                    <label>
+                                        UVR
+                                        <input type="text" readonly value="{{$$entity.ambulance_km_uvr}}"/>
+                                    </label>
+                                </div>
+                                <div class="small-3 columns">
+                                    <label>
+                                        FCM
+                                        <input type="text" readonly value="{{$$entity.ambulance_km_fcm}}"/>
+                                    </label>
+                                </div>
+                                <div class="small-3 columns">
+                                    <label>
+                                        VI
+                                        <input type="text" readonly value="{{$$entity.ambulance_km_value}}"/>
+                                    </label>
+                                </div>
+                                <div class="small-3 columns">
+                                    <label>
+                                        ST(KM*VI)
+                                        <input type="text" readonly value="{{$$entity.ambulance_km_value}}"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-9 columns">
+                            <label>
+                                {{$$elements.description.title}}
+                                <input-element data-element-type="text" data-element="$$elements.description" data-ng-model="$$entity.description"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns">
+                            <div class="row">
+                                <div class="small-4 columns text-right">
+                                    <br/>
+                                    <label>TOTAL:</label>
+                                </div>
+                                <div class="small-8 columns">
+                                    <label>
+                                        <br>
+                                        <input type="text" readonly value="{{$$entity.total | currency:'USD $'}}"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span data-custom-valiadation="$$layout.validateKm()"></span>
+</form-handler>

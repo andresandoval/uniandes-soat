@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html data-ng-controller="index_controller">
+    <head>
+        <title data-ng-bind="page.title">Loading page...</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="resource/src/images/favicon.ico " type="image/x-icon">
+        <link href="resource/dist/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div>
+            <noscript>
+            <div class="row">
+                <div class="small-12 columns">
+                    <h4>Su navegador no soporta JavaScript</h4>
+                </div>
+                <hr/>
+            </div>
+            <div class="row">
+                Para utilizar las funcionalidades completas de este sitio es necesario tener JavaScript habilitado. <br/>
+                Aquí están las <a href="http://www.enable-javascript.com/es/" target="_blank"> instrucciones para habilitar JavaScript en tu navegador web <i class="fa fa-external-link"></i></a>.
+            </div>
+            </noscript>
+        </div>
+        <div data-ng-view class="main-view"></div>
+        <div class="main-overlay" data-ng-hide="!page.solving">
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>
+        <!--<script src="resource/dist/script.min.js"></script>-->
+        <script src="resource/vendor/requirejs-2.1.20/require.js" type="text/javascript" data-main="resource/config"></script>
+    </body>
+</html>

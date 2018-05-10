@@ -1,0 +1,359 @@
+.list-container{
+
+    &{
+        @include full_size('width', 100%);
+        @include full_size('height', 100%);
+        border: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    > .header{
+        @include full_size('height', $list-header-height);
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 0px;
+        border-bottom: 1px solid $primary-border-color;
+    }
+
+    > .body{
+
+        &{
+            @include full_size('width', 100%);
+            @include full_calc('height', 100% - #{$list-header-height + 2px + $list-footer-height});
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            overflow: auto;
+        }
+
+        > table.list {
+            &{
+                width: auto;
+                min-width: 100%;
+                //@include full_size('height', 50px);
+                font-family: $primary-font;
+                margin: 0px;
+                padding: 0px;
+                border: 0;
+                table-layout: fixed;
+                border-collapse: collapse;
+            }
+
+            > thead{
+                > tr {
+                    > th{
+                        &{
+                            @include no_select();
+                            background-color: #bbb;
+                            color: set-text-color(#bbb);
+                            padding: 0;//#################
+                        }
+                        &[data-title="!"],  &[data-title="#"] {
+                            width: 55px !important;
+                            text-align: center;
+                        }
+
+                        &.sorter{
+                            text-align: center;
+                            width: 38px;
+                            //background-color: #ccc;
+                        }
+
+                        &:not(:first-of-type){
+                            border-left: 2px solid #eee;
+                        }
+
+                        &:first-of-type{
+                            border-left: 5px solid transparent;
+                        }
+                        > span > table {
+                            &{
+                                border: 0;
+                                margin: 0;
+                                padding: 0;
+                                background: transparent;
+                                width: 100%;
+                                border-collapse: collapse;
+                            }
+                            > tbody > tr > td{
+                                &{
+                                    background: transparent;
+                                    border: none;
+                                }
+                                &:nth-of-type(1){
+                                    &{
+                                        padding: 9px 4px;
+                                    }
+
+                                    &[data-title="!"],  &[data-title="#"] {
+                                        width: 55px !important;
+                                        text-align: center;
+                                    }
+
+                                    &:not([data-title="!"]):not([data-title="#"]){
+                                        @include full_calc('width', '100% - 20px');
+                                    }
+
+                                }
+                                &:nth-of-type(2){
+                                    &{
+                                        &{
+                                            @include full_size('width', 20px);
+                                            text-align: center;
+                                            padding: 9px 0px;
+                                        }
+
+                                        > i{
+                                            color: #888 ;
+                                        }
+                                    }
+
+                                    &:hover{
+                                        cursor: pointer;
+                                        > i{
+                                            text-decoration: underline
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            > tbody {
+
+                > tr {
+
+                    > td{
+
+                        &{
+                            @include no_select();
+                            border-bottom: 1px #e5e5e5 solid;
+                        }
+
+                        > .icon {
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        &.sorter{
+                            text-align: center;
+                            width: 38px;
+                        }
+
+                        &:not(.sorter):hover{
+                            cursor: pointer;
+                        }
+
+                        /*                        &:first-of-type{
+                                                    border-left: 5px solid transparent;
+                                                }*/
+
+                    }
+
+                    &[data-has-dropdown='false']{
+
+                        &.checked {
+                            &{
+                                background-color: #FFC !important;
+                            }
+
+
+                        }
+
+                        &:not(.checked){
+
+                            &:nth-child(odd){
+                                > td.sorter{
+                                    background-color: #eee;
+                                }
+                            }
+                            &:nth-child(even){
+                                > td.sorter{
+                                    background-color: #ccc;
+                                }
+                            }
+                        }
+
+                        &:hover{
+
+                            > td:first-of-type{
+                                @include left-linear-gradient(#ff3333, 0%, transparent, 7px);
+                            }
+                            > td{
+                                border-bottom: 1px solid  rgba(255, 51, 51, 0.3);
+                            }
+
+                        }
+
+                    }
+
+                    &[data-has-dropdown='true']{
+
+                        background-color: #4285f4 !important;
+
+                        * {
+                            color: #fff !important;
+                            background: transparent !important;
+                        }
+
+                        &:hover{
+
+                            > td:first-of-type{
+                                @include left-linear-gradient(#fff, 0%, transparent, 20%);
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > .footer{
+        &{
+            width: 100%;
+            @include full_size('height', $list-footer-height);
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            padding: 0px !important;
+            border-top: 1px solid $primary-border-color  !important;
+            overflow: hidden;
+            @include no_select();
+        }
+
+        > table {
+
+            &, > tbody {
+                padding: 0  !important;
+                margin: 0 !important;
+                width: 100%;
+                height: 100%;
+                border-collapse: collapse;
+                border: 0;
+                border-spacing: 0;
+            }
+
+            > tbody {
+
+                > tr {
+                    &, > td{
+                        padding: 0  !important;
+                        margin: 0 !important;
+                        border: 0;
+                    }
+                    > td {
+
+                        &:nth-of-type(1){
+                            &{
+                                width: 100px;
+                                border-right: 1px solid $primary-border-color;
+                                font-size: $primary-font-size !important;
+                            }
+                        }
+
+                        &:nth-of-type(2){
+                            > ul.pagination{
+
+                                &{
+                                    margin: 0px;
+                                    padding:  0px;
+                                    font-size: 8px;
+                                }
+
+                            }
+                        }
+
+                        &:nth-of-type(3){
+                            &{
+                                width: 175px;
+                                border-left: 1px solid $primary-border-color;
+                            }
+                            > select {
+                                -webkit-appearance: button;
+                                height: 92%;
+                                border: none;
+                                @include full_size('height', $list-footer-height);
+                                vertical-align: middle;
+                                margin: 0;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > .status{
+        &{
+            @include full_size('width', 100%);
+            @include full_calc('height', 100% - #{$list-header-height + 1px});
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            overflow: auto;
+            display: table;
+            text-align: center;
+        }
+        > div {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 19px !important;
+            color: #888;
+        }
+    }
+
+}
+
+
+ul.f-dropdown.context-menu{
+    &{
+        margin: 1px;
+        box-shadow: 8px 8px 8px #888;
+        @include no_select();
+        z-index: 1992 !important;
+    }
+
+    /*    > li {
+            border-bottom: 1px solid #ccc;
+        }*/
+
+    &:before, &:after{
+        content: none !important;
+    }
+
+}
+
+.overlay-filter{
+
+    &{
+        position: absolute !important;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,0.7);
+        z-index: 1000;
+        padding-top: 5%;
+        //visibility: hidden;
+        @include no_select();
+    }
+
+    .filter-container{
+
+        &{
+            box-shadow: 8px 8px 8px #888;
+        }
+
+        > .overlay-filter-title {
+            padding: 10px 0px;
+            border-bottom: 1px solid #ddd;
+            cursor: move;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+/*
+ * Developed by: Andres Sandoval Montoya
+ * Date: 26-may-2016-13:34:54
+ * Contact: andresandoval992@gmail.com
+ *
+ * _scroll, part of app
+ */
+
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 3px;
+  height: 3px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #606060;
+}
+
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none transparent;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

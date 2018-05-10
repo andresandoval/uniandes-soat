@@ -1,0 +1,52 @@
+{
+    "elements": {
+        "elem": {},
+        "qr": {},
+        "ui-tabs": {},
+        "pagination": {
+            "attributes": {
+                "data-max-size": {},
+                "data-page": {},
+                "data-total-items": {},
+                "data-items-per-page": {}
+            }
+        },
+        "line": {},
+        "icon": {},
+        "tab-heading": {},
+        "form-status": {},
+        "button-icon": {
+            "attributes": {
+                "data-callback": {}
+            }
+        },
+        "acciones-tree": {},
+        "div": {
+            "attributes": {
+                "oncontextmenu": {},
+                "data-ac-chart": {},
+                "style": {},
+                "data-form-status": {},
+                "class": {},
+                "data-ng-view": {},
+                "data-form-validation": {}
+            }
+        },
+        "form-element": {},
+        "tab": {},
+        "profile-action-tree": {},
+        "timeline": {},
+        "tabset": {}
+    },
+    "attributes": {
+        "data-element": {},
+        "data-ng-if": {},
+        "data-auto-play": {},
+        "data-perform-action": {},
+        "data-ng-show": {},
+        "data-acknowledgement": {},
+        "class": {},
+        "data-on-esc": {},
+        "data-on-change": {}
+    }
+}

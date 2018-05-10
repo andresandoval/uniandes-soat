@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="small-12 columns panel">
+        <div class="row">
+            <div class="small-11 columns small-centered">
+                <h2>Copia de base de datos</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row" data-ng-if="$$layout.success">
+            <div class="small-6 columns text-center">
+                <a data-ng-href="{{$$layout.backupFile}}" target="_self" download="Copia de seguridad.backup">
+                    <i class="fa fa-download fa-3x" style="color: green"></i><br/>
+                    Descargar archivo .backup
+                </a>
+            </div>
+            <div class="small-6 columns text-center">
+                <a data-ng-href="{{$$layout.logFile}}" target="_self" download="Log de copia de seguridad.log">
+                    <i class="fa fa-terminal fa-3x" style="color: red"></i><br/>
+                    Descargar log de registro
+                </a>
+            </div>
+        </div>
+        <div class="row" data-ng-if="!$$layout.success">
+            <div class="small-6 columns text-center small-offset-3">
+                <pre>
+                    Ocurrio un error al intentar generar una copia de seguridad de la base de datos, por favor intentelo nuevamente, si el problema persiste por favor pongase en contacto con el administrador.
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

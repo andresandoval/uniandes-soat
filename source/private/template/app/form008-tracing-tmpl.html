@@ -1,0 +1,288 @@
+<div>
+    <div class="row">
+        <div class="small-12 columns panel">
+            <div class="row">
+                <div class="small-12 columns text-left"><h4>Formulario 008</h4></div>
+            </div><br/>
+            <div class="row">
+                <div class="small-12 columns">
+                    <table class="form-008-detalle">
+                        <tr>
+                            <th>Codigo</th>
+                            <td>{{$$entity.form008.code}}</td>
+                            <th>Fecha de generación</th>
+                            <td>{{$$entity.form008.last_update_date}}</td>
+                            <td><icon data-perform-action="$$operations.retrieve_list" data-auto-play data-acknowledgement="false" data-data="{form008_identifier: $$entity.form008.identifier}" data-callback="$$layout.tracingList.populate($$data)"></icon></td>
+                        </tr>
+                    </table>
+                    <h6 style="border-bottom: 1px solid #aaa">Paciente</h6>
+                    <table class="form-008-detalle">
+                        <tr>
+                            <th>Primer nombre</th>
+                            <td>{{$$entity.patient.primer_nombre}}</td>
+                            <th>Segundo nombre</th>
+                            <td>{{$$entity.patient.segundo_nombre}}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido paterno</th>
+                            <td>{{$$entity.patient.apellido_paterno}}</td>
+                            <th>Apellido materno</th>
+                            <td>{{$$entity.patient.apellido_materno}}</td>
+                        </tr>
+                    </table>
+                    <table class="form-008-detalle">
+                        <tr>
+                            <th>Direccion</th>
+                            <td colspan="5">{{$$entity.patient.direccion}}</td>
+                        </tr>
+                        <tr>
+                            <th>Provincia</th>
+                            <td>{{$$entity.patient.provincia}}</td>
+                            <th>Canton</th>
+                            <td>{{$$entity.patient.canton}}</td>
+                            <th>Parroquia</th>
+                            <td>{{$$entity.patient.parroquia}}</td>
+                        </tr>
+                        <tr>
+                            <th>Zona</th>
+                            <td>{{$$entity.patient.zona}}</td>
+                            <th>Barrio</th>
+                            <td>{{$$entity.patient.barrio}}</td>
+                            <th>Telefono</th>
+                            <td>{{$$entity.patient.telefono}}</td>
+                        </tr>
+                    </table>
+                    <table class="form-008-detalle">
+                        <tr>
+                            <th>Fecha de nacimiento</th>
+                            <td>{{$$entity.patient.fecha_nacimiento}}</td>
+                            <th>Lugar de nacimiento</th>
+                            <td>{{$$entity.patient.lugar_nacimiento}}</td>
+                            <th>Nacionalidad</th>
+                            <td>{{$$entity.patient.nacionalidad}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns small-centered panel">
+            <div class="row">
+                <div class="small-12 columns text-left"><h4>Médico asignado</h4></div>
+            </div><br/>
+            <div class="row ">
+                <div class="small-10 columns small-centered">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.doctor.title}}
+                        </label>
+                        <div class="small-11 columns">
+                            <ui-select data-ng-model="$$layout.doctor.model" data-ng-disabled="$$operations.process_assigned_doctor === undefined" data-on-select="$$layout.doctor.updateEntity()">
+                                <ui-select-match placeholder="{{$$elements.doctor.title}}...">
+                                    {{$select.selected.first_name}} {{$select.selected.last_name}} ({{$select.selected.speciality_name}})
+                                </ui-select-match>
+                                <ui-select-choices data-repeat="data in $$layout.tracingList.doctor | filter: { description : $select.search } | orderBy: '+description'" data-group-by="'speciality_name'">
+                                    {{data.first_name}} {{data.last_name}}
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                        <div class="small-1 columns" data-ng-show="$$operations.process_assigned_doctor !== undefined">
+                            <button-icon data-ng-disabled="$$entity.doctorIdentifier === undefined || $$entity.doctorIdentifier === null" class="button postfix primary" data-perform-action="$$operations.process_assigned_doctor" data-acknowledgement="true" data-data="{form008_identifier: $$entity.form008.identifier, doctor_identifier : $$entity.doctorIdentifier}"></button-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns small-centered panel">
+            <div class="row">
+                <div class="small-10 columns text-left"><h4>Uso de ambulancia</h4></div>
+                <div class="small-1 columns">
+                    <button class="button tiny radius expanded success" data-print-me="tabla-uso-ambulancia" data-title="Uso de ambulancia" data-ng-show="$$layout.tracingList.ambulanceUseList.length > 0">
+                        <i class="fa fa-lg fa-print"></i>
+                    </button>
+                </div>
+                <div class="small-1 columns" data-ng-show="$$operations.ambulance !== undefined">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.ambulance" data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="small-11 columns small-centered">
+                    <table class="form-008-detalle" data-ng-if="$$layout.tracingList.ambulanceUseList.length > 0" id="tabla-uso-ambulancia">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Numero de autorización</th>
+                                <th class="text-center">Recorrido</th>
+                                <th class="text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="au in $$layout.tracingList.ambulanceUseList">
+                                <td>{{au.autorization_number}}</td>
+                                <td>{{au.description}}</td>
+                                <td class="text-right">{{au.total| currency:'USD $'}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th class="text-right" colspan='2'>TOTAL</th>
+                                <th class="text-right">{{$$layout.tracingList.ambulanceUseTotal| currency:'USD $'}}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <span data-ng-if="$$layout.tracingList.ambulanceUseList.length <= 0">No hay registros para mostrar...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns small-centered panel">
+            <div class="row">
+                <div class="small-10 columns text-left"><h4>Uso de oxigeno</h4></div>
+                <div class="small-1 columns">
+                    <button class="button tiny radius expanded success" data-print-me="tabla-uso-oxigeno" data-title= "Uso de oxigeno" data-ng-show="$$layout.tracingList.oxygenUseList.length > 0">
+                        <i class="fa fa-lg fa-print"></i>
+                    </button>
+                </div>
+                <div class="small-1 columns" data-ng-show="$$operations.oxygen !== undefined">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.oxygen" data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="small-11 columns small-centered">
+                    <table class="form-008-detalle" data-ng-if="$$layout.tracingList.oxygenUseList.length > 0" id="tabla-uso-oxigeno">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Concepto</th>
+                                <th class="text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="ou in $$layout.tracingList.oxygenUseList">
+                                <td>{{ou.description}}</td>
+                                <td class="text-right">{{ou.total| currency:'USD $'}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th class="text-right" colspan='1'>TOTAL</th>
+                                <th class="text-right">{{$$layout.tracingList.oxygenUseTotal| currency:'USD $'}}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <span data-ng-if="$$layout.tracingList.oxygenUseList.length <= 0">No hay registros para mostrar...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns small-centered panel">
+            <div class="row">
+                <div class="small-11 columns text-left"><h4>Formulario único de reclamaciones</h4></div>
+                <div class="small-1 columns" data-ng-show="$$operations.generate_fur !== undefined && ($$entity.fur === undefined || $$entity.fur === null)">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.generate_fur" data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+                <div class="small-1 columns" data-ng-show="$$operations.view_fur !== undefined && $$entity.fur !== undefined && $$entity.fur !== null">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.view_fur" data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="small-11 columns small-centered" data-ng-switch="$$entity.fur !== undefined && $$entity.fur !== null">
+                    <span data-ng-switch-when="true" data-compile-unsafe-html="$$entity.fur">
+                    </span>
+                    <span data-ng-switch-default>
+                        Aun no se a generado el formulario único de reclamaciones...
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns small-centered panel">
+            <div class="row">
+                <div class="small-11 columns text-left"><h4>Planilla de gastos</h4></div>
+                <div class="small-1 columns" data-ng-show="$$layout.enableToGenerateExpenseForm">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.generate_expense_form" data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+                <div class="small-1 columns" data-ng-show="$$layout.enableToViewExpenseForm">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.view_expense_form" data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+            </div><br/>
+            <div class="row" data-ng-switch="$$layout.notExpenseFormMessage !== undefined && $$layout.notExpenseFormMessage !== null">
+                <div class="small-11 columns small-centered" data-ng-switch-when="true">
+                    {{$$layout.notExpenseFormMessage}}
+                </div>
+                <div class="small-11 columns small-centered" data-ng-switch-default>
+                    <table class="form-008-detalle">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Diagnostico</th>
+                                <th class="text-center" style="width: 150px">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$$entity.expense_form.diagnostic}}</td>
+                                <td class="text-right">{{$$entity.expense_form.total| currency: ''}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th class="text-right">{{$$entity.insurance}}</th>
+                                <th class="text-right">{{$$entity.expense_form.sppat| currency:''}}</th>
+                            </tr>
+                            <tr>
+                                <th class="text-right">SALDO</th>
+                                <th class="text-right">{{$$entity.expense_form.balance| currency:''}}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" data-ng-hide="$$layout.notExpenseFormMessage !== undefined && $$layout.notExpenseFormMessage !== null">
+        <div class="small-12 columns small-centered panel">
+            <div class="row">
+                <div class="small-10 columns text-left"><h4>Objeción</h4></div>
+                <div class="small-1 columns" data-ng-show="$$operations.update_objection !== undefined">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.update_objection"  data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+                <div class="small-1 columns" data-ng-show="$$operations.view_objection !== undefined && $$entity.objection !== undefined && $$entity.objection !== null">
+                    <button-icon class="button tiny radius expanded" data-perform-action="$$operations.view_objection"  data-data="{form008_identifier: $$entity.form008.identifier}"></button-icon>
+                </div>
+            </div><br/>
+            <div class="row" ng-show="$$entity.objection !== null">
+                <div class="small-12 columns">
+                    <table class="form-008-detalle">
+                        <tbody>
+                            <tr>
+                                <th>Numero de objecion</th>
+                                <td class="text-right">{{$$entity.objection.number}}</td>
+                                <th>Valor objetado</th>
+                                <td class="text-right">{{$$entity.objection.value| currency:''}}</td>
+                                <th>Factura</th>
+                                <td class="text-right">{{$$entity.objection.invoice}}</td>
+                            </tr>
+                            <tr>
+                                <th>Descripcion</th>
+                                <td colspan="5" rowspan="2">{{$$entity.objection.description}}</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td colspan="5">&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" ng-show="$$entity.objection === null">
+                <div class="small-11 columns small-centered">
+                    Aun no se ha generado una objeción
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

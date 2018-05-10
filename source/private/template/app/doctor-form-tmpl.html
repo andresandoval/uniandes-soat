@@ -1,0 +1,47 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-10 columns">
+            <label>
+                {{$$elements.identity_number.title}}
+                <input-element data-element-type="ci" data-ng-readonly="!$$elements.identity_number.required" data-element="$$elements.identity_number" data-ng-model="$$entity.identity_number"></input-element>
+            </label>
+        </div>
+        <div class="small-2 columns text-left">
+            <input-element data-element-type="switch" data-element="$$elements.active" data-ng-model="$$entity.active"></input-element>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns panel">
+            <div class="row">
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.first_name.title}}
+                        <input-element only-letters data-element-type="text" data-element="$$elements.first_name" data-ng-model="$$entity.first_name"></input-element>
+                    </label>
+                </div>
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.last_name.title}}
+                        <input-element only-letters data-element-type="text" data-element="$$elements.last_name" data-ng-model="$$entity.last_name"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-8 columns small-centered">
+                    <label>
+                        {{$$elements.speciality_identifier.title}}
+                        <input-element data-element-type="select" data-element="$$elements.speciality_identifier" data-ng-model="$$entity.speciality_identifier"></input-element>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description" rows="4"></input-element>
+            </label>
+        </div>
+    </div>
+</form-handler>

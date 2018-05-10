@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/template/app/fur-tmpl.html</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/template/app/patient-form-tmpl.html</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/template/app/expense-form-tmpl.html</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/data/entities/app/medicineEntity.php</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/public/resource/src/js/directives/form-handler.js</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/public/resource/src/js/controllers/app/expense-form-controller.js</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/resource/scss/style.scss</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/template/app/form008-tracing-tmpl.html</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/handler/app/form008Handler.php</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/public/resource/src/js/controllers/app/form-008-tracing-controller.js</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/public/resource/src/js/controllers/kernel/user-controller.js</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/businessLogic/appBL.php</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/template/app/ambulance-use-tmpl.html</file>
+            <file>file:/C:/Dropbox/Development/SOAT/source/private/data/dataAccess/app/medicineDA.php</file>
+        </group>
+    </open-files>
+</project-private>

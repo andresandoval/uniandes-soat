@@ -1,0 +1,26 @@
+/*
+ * Developed by: Andres Sandoval Montoya
+ * Date: 23/11/2015-16:48:28
+ * Contact: andresandoval992@gmail.com
+ *
+ * _icon_fonts, part of app
+ */
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cuy:before {
+    content: "\e900";
+    font-size: 18px;
+}

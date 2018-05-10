@@ -1,0 +1,117 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-12 columns" style="font-weight: bold">
+            PLANILLA DE GASTOS
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="small-12 columns">
+            <table class="form-008-detalle" style="max-width: 100%">
+                <thead>
+                    <tr>
+                        <th style="width: 4%" class="text-center"><icon data-perform-action="$$operations.retrieveTarifOrMedicineList" data-auto-play data-acknowledgement="false" data-callback="$$layout.populateLists($$data)"/></th>
+                        <th style="width: 66%" class="text-center">DETALLE</th>
+                        <th style="width: 10%" class="text-center">CANTIDAD</th>
+                        <th style="width: 10%" class="text-center">C/U</th>
+                        <th style="width: 10%" class="text-center">C/T</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #ccffcc">
+                        <td class="text-center" style="width: 4%;">
+                            <i class="fa fa-plus-circle fa-lg action" style="color: #0F9E5E; font-size: 24px;" data-ng-click="$$layout.addTariffItem()"></i>
+                        </td>
+                        <td colspan="4" class="text-center" style="width: 96%">-- ITEMS DE TARIFARIO --</td>
+                    </tr>
+                    <tr data-ng-repeat="it in $$entity.tariff_item">
+                        <td style="width: 4%; padding: 1px;" class="text-center">
+                            <i class="fa fa-times-circle fa-lg action" style="color: #f04124; font-size: 24px;" data-ng-click="$$layout.removeTariffItem(it)"></i>
+                        </td>
+                        <td style="width: 66%; padding: 1px;">
+                            <ui-select data-ng-model="it.item" style="margin: 0" ng-change="$$tinyEntity.populate()">
+                                <ui-select-match placeholder="Seleccionar...">
+                                    <div style="overflow: hidden; text-overflow: ellipsis; max-width: 578px">
+                                        {{$select.selected.code}} - {{$select.selected.name}}
+                                    </div>
+                                </ui-select-match>
+                                <ui-select-choices data-repeat="data in $$layout.tariffList | filter: { name : $select.search } | orderBy: '+name'">
+                                    {{data.code}} - {{data.name}}
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td style="width: 10%; padding: 1px;">
+                            <input type="text" only-numbers data-ng-model="it.quantity" style="margin: 0; text-align: right" ng-change="$$tinyEntity.populate()" maxlength="2"/>
+                        </td>
+                        <td style="width: 10%; padding: 1px;" class="text-right">{{it.item.value | currency:''}}</td>
+                        <td style="width: 10%; padding: 1px;" class="text-right">{{it.total | currency:''}}</td>
+                    </tr>
+                    <tr style="background: #ccffcc">
+                        <td class="text-center" style="width: 4%;">
+                            <i class="fa fa-plus-circle fa-lg action" style="color: #0F9E5E; font-size: 24px;" data-ng-click="$$layout.addMedicineItem()"></i>
+                        </td>
+                        <td colspan="4" class="text-center" style="width: 96%">-- ITEMS DE STOCK DE MEDICAMENTOS --</td>
+                    </tr>
+                    <tr data-ng-repeat="im in $$entity.medicine_item">
+                        <td style="width: 4%; padding: 1px;" class="text-center">
+                            <i class="fa fa-times-circle fa-lg action" style="color: #f04124; font-size: 24px;" data-ng-click="$$layout.removeMedicineItem(im)"></i>
+                        </td>
+                        <td style="width: 66%; padding: 1px;">
+                            <ui-select data-ng-model="im.item" style="margin: 0" ng-change="$$tinyEntity.populate()">
+                                <ui-select-match placeholder="Seleccionar...">
+                                    <div style="overflow: hidden; text-overflow: ellipsis; max-width: 578px">
+                                        {{$select.selected.code}} - {{$select.selected.name}}
+                                    </div>
+                                </ui-select-match>
+                                <ui-select-choices data-repeat="data in $$layout.medicineList | filter: { name : $select.search } | orderBy: '+name'">
+                                    {{data.code}} - {{data.name}}
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td style="width: 10%; padding: 1px;">
+                            <input type="text" only-numbers data-ng-model="im.quantity" style="margin: 0; text-align: right" ng-change="$$tinyEntity.populate()" maxlength="3"/>
+                        </td>
+                        <td style="width: 10%; padding: 1px;" class="text-right">{{im.item.value | currency:''}}</td>
+                        <td style="width: 10%; padding: 1px;" class="text-right">{{im.total | currency:''}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-right">TOTAL</td>
+                        <td class="text-right">{{$$entity.total | currency: ''}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right">{{$$layout.insurance}}</td>
+                        <td class="text-right">
+                            <input type="text" readonly value="{{$$entity.sppat | currency: '' }}" style="margin: 0; text-align: right"/>
+                            <!--<input-element data-element-type="decimal" data-element="$$elements.sppat" data-ng-model="$$entity.sppat" style="margin: 0; text-align: right"></input-element>-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right">SALDO</td>
+                        <td class="text-right">{{$$entity.balance | currency: ''}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row">
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.diagnostic.title}}
+                        <input-element data-element-type="textarea" data-element="$$elements.diagnostic" data-ng-model="$$entity.diagnostic" readonly></input-element>
+                    </label>
+                </div>
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.description.title}}
+                        <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description"></input-element>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span data-custom-valiadation="$$layout.validateItems()"></span>
+</form-handler>

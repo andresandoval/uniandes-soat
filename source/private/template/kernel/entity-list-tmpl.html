@@ -1,0 +1,130 @@
+<!--batch dropdown-->
+<ul data-ng-attr-id="{{tmpId}}_batch" class="f-dropdown tiny no-select">
+    <li data-ng-repeat="b in batch.data">
+        <line data-perform-action="b" data-data="selectedRows.data" data-callback="rows.populate()"></line>
+    </li>
+</ul>
+
+<!--filtros-->
+<div class="overlay-filter" data-ng-if="filter.advanced.exists()" data-ng-show="filter.advanced.visible" data-on-esc="filter.advanced.rollback()">
+    <div class="row">
+        <div class="small-11 large-7 columns small-centered large-centered panel filter-container animated fadeIn" data-draggable>
+            <h5 class="overlay-filter-title" data-draggable-handler>Filtro detallado</h5>
+            <div class="row" data-ng-repeat="f in filter.advanced.tmpData" data-ng-if="f.enabled">
+                <div class="small-11 columns small-centered">
+                    <label>
+                        {{f.title}}
+                        <input-element data-element-type="select" data-element="f" data-ng-model="f.model" data-default="f.default"></input-element>
+                    </label>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="small-12 large-2 large-offset-8 columns">
+                    <button class="button tiny expand success" data-ng-click="filter.advanced.commit()" title="Aceptar y buscar"><i class="fa fa-check fa-lg"></i></button>
+                </div>
+                <div class="small-12 large-2 columns">
+                    <button class="button tiny expand warning" data-ng-click="filter.advanced.rollback()" title="Cancelar"><i class="fa fa-times fa-lg"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="list-container no-select">
+    <div class="header">
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="row">
+                    <div class="small-1 columns" data-ng-if="batch.show()">
+                        <button class="button prefix radius" data-dropdown-toggle="#{{tmpId}}_batch">
+                            <div data-tooltip="Acciones en bloque" data-tooltip-placement="top" data-tooltip-append-to-body="true" data-tooltip-popup-delay="500">
+                                <i class="fa fa-bars fa-lg"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="columns" data-ng-class="(batch.show() && filter.advanced.exists() && 'small-10') || ((batch.show() || filter.advanced.exists()) && 'small-11') || 'small-12'">
+                        <div class="row collapse">
+                            <div class="small-1 columns">
+                                <button class="button warning prefix reset-query-box round" data-ng-click="rows.reset()" data-tooltip="Reiniciar búsqueda" data-tooltip-placement="top" data-tooltip-append-to-body="true" data-tooltip-popup-delay="500">
+                                    <i class="fa fa-close fa-lg"></i>
+                                </button>
+                            </div>
+                            <div class="small-10 columns">
+                                <input type="text" class="search" placeholder="Filtro básico" autofocus data-ng-model="filter.pattern" data-ng-keyup="$event.which === 13 && rows.populate()"/>
+                            </div>
+                            <div class="small-1 columns">
+                                <button class="button success postfix perform-query-box round" data-ng-click="rows.populate()" data-tooltip="Confirmar búsqueda" data-tooltip-placement="top" data-tooltip-append-to-body="true" data-tooltip-popup-delay="500">
+                                    <i class="fa fa-lg" data-ng-class="rows.loading && 'fa-refresh fa-spin' || 'fa-search'"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="small-1 columns" data-ng-if="filter.advanced.exists()">
+                        <button class="button prefix radius secondary" data-ng-click="filter.advanced.show()">
+                            <div data-tooltip="Filtro detallado" data-tooltip-placement="top" data-tooltip-append-to-body="true" data-tooltip-popup-delay="500">
+                                <i class="fa fa-filter fa-lg"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body" data-ng-if="rows.exists()" data-on-scroll="closeContextMenu()" oncontextmenu="return false;">
+        <table class="list animated fadeIn">
+            <thead>
+                <tr>
+                    <th class="sorter" data-ng-if="batch.exists()">
+                        <i class="fa fa-square-o fa-lg action" data-ng-class="selectedRows.sumary.get()" data-ng-click="selectedRows.toogle()"></i>
+                    </th>
+                    <th data-ng-repeat="(hKey, h) in head" data-title="{{h.columnName}}">
+                        <span>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td data-title="{{h.columnName}}" data-has-filter="{{h.hasFilter}}">{{h.columnName}}</td>
+                                        <td data-ng-if="h.hasFilter" title="{{h.filterTitle}}"><i class="fa" data-ng-class="h.filterClass"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="r in rows.data" data-context-menu="r.context" data-right-click="selectedRows.toogle(false)" data-identifier="{$$rowIdentifier : [r.identifier]}" data-ng-dblclick="selectedRows.select(r)" data-context-callback="rows.populate()" data-ng-class="r.checked && 'checked'">
+                    <td class="sorter" data-ng-if="batch.exists()">
+                        <div>
+                            <i class="fa fa-lg action" data-ng-class="r.checked && 'fa-check-square-o' || 'fa-square-o'" data-ng-click="selectedRows.select(r)"></i>
+                        </div>
+                    </td>
+                    <td data-ng-repeat="(cKey, c) in r.entity" data-ng-switch="head[cKey].highlightMatch">
+                        <span data-ng-switch-when="true" data-compile-unsafe-html=" c | $$highlightMatch:filter.pattern"></span>
+                        <span data-ng-switch-when="false" data-compile-unsafe-html="c"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="footer" data-ng-show="rows.exists()">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        {{filter.sumary.data}}
+                    </td>
+                    <td class="pagination-centered">
+                        <div data-pagination data-total-items="filter.totalRowCount" data-page="filter.currentPage" data-max-size="filter.maxPages" data-items-per-page="filter.rowsPerPage.current" data-on-select-page="filter.triggerPopulate(page)"></div>
+                    </td>
+                    <td class="text-center">
+                        <select data-ng-model="filter.rowsPerPage.current" data-ng-options="key as value for (key, value) in filter.rowsPerPage.list" data-tooltip="Registros por pagina" data-tooltip-placement="top" data-tooltip-popup-delay="500"></select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="status" data-ng-if="!rows.exists()">
+        <div data-compile-unsafe-html="status"></div>
+    </div>
+</div>

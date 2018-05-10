@@ -1,0 +1,43 @@
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <div class="fixed animated bounceInDown" oncontextmenu="return false;">
+            <nav class="tab-bar">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+                </section>
+                <section class="middle tab-bar-section">
+                    <h1 title="{{page.title}}" data-ng-bind="page.title">Procesando ubicación...</h1>
+                </section>
+                <section class="right-small">
+                    <a class="right-off-canvas-toggle">
+                        <i class="fa fa-user"></i>
+                    </a>
+                </section>
+            </nav>
+        </div>
+        <aside class="left-off-canvas-menu" oncontextmenu="return false;">
+            <div class="menu-title">
+                {{page.app.name}} <i class="fa fa-refresh fa-lg action" data-ng-click="refreshMenuTree()"></i>
+            </div>
+            <div class="menu-container">
+                <div data-js-tree="page.operations.appMenu" ></div>
+            </div>
+        </aside>
+        <aside class="right-off-canvas-menu text-center" oncontextmenu="return false;">
+            <i class="fa fa-user fa-5x" style="font-size: 180px; color: #bbb"></i>
+            <div>
+                <hr/>
+                <div data-ng-bind="page.title">Procesando ubicación...</div>
+                <div data-current-time>Procesando hora del sistema...</div>
+                <hr/>
+                <div data-ng-bind="page.user.full_name + '@' + page.user.login">Recuperando datos del usuario</div>
+                <hr/>
+            </div>
+            <button class="button tiny radius success" data-perform-action="page.operations.logout" data-callback="page.start()"></button>
+        </aside>
+        <section class="main-section animated bounceInUp">
+            <ui-tabs></ui-tabs>
+        </section>
+        <a class="exit-off-canvas" oncontextmenu="return false;"></a>
+    </div>
+</div>

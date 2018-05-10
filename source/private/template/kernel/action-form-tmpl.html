@@ -1,0 +1,204 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-10 columns">
+            <div class="row collapse">
+                <label>
+                    {{$$elements.rootIdentifier.title}}
+                </label>
+                <div class="small-11 columns">
+                    <ui-select data-ng-model="$$entity.root_identifier" data-select2-element="$$elements.rootIdentifier">
+                        <ui-select-match placeholder="Acción padre..." allow-clear>
+                            [{{$select.selected.name}}] - {{$select.selected.title}}
+                        </ui-select-match>
+                        <ui-select-choices data-repeat="data in $$layout.rootList.data | filter: { title : $select.search } | orderBy: '+name'" data-group-by="handler">
+                            [{{data.name}}] - <span data-compile-unsafe-html="data.title | $$boldMatch : $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="small-1 columns">
+                    <button-icon class="button postfix secondary" data-perform-action="$$operations.retrieveRootList" data-auto-play data-acknowledgement="false" data-callback="$$layout.rootList.populate($$data)"></button-icon>
+                </div>
+            </div>
+        </div>
+        <div class="small-2 columns text-left">
+            <input-element data-element-type="switch" data-element="$$elements.active" data-ng-model="$$entity.active"></input-element>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-4 columns">
+            <div class="row collapse">
+                <label>
+                    {{$$elements.icon.title}}
+                </label>
+                <div class="small-8 columns">
+                    <ui-select data-ng-model="$$entity.icon" data-select2-element="$$elements.icon">
+                        <ui-select-match placeholder="Icono...">
+                            <i class="fa fa-lg" data-ng-class="$select.selected.identifier" data-ng-style="{color: entity.icon_color}"></i>&nbsp;&nbsp;&nbsp;{{$select.selected.value}}
+                        </ui-select-match>
+                        <ui-select-choices repeat="data in $$layout.iconList.data | filter: $select.search | orderBy: '+value'">
+                            <i class="fa fa-lg" data-ng-class="data.identifier" data-ng-style="{color: entity.icon_color}"></i>&nbsp;&nbsp;&nbsp;<span data-compile-unsafe-html="data.value | $$boldMatch:$select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="small-2 columns">
+                    <button-icon class="button postfix secondary" data-perform-action="$$operations.retrieveIconList" data-auto-play data-acknowledgement="false" data-callback="$$layout.iconList.populate($$data)"></button-icon>
+                </div>
+                <div class="small-2 columns">
+                    <input-element data-element-type="color" data-element="$$elements.iconColor" data-ng-model="$$entity.icon_color"></input-element>
+                </div>
+            </div>
+        </div>
+        <div class="small-3 columns">
+            <label>
+                {{$$elements.type.title}}
+                <input-element data-element-type="select" data-element="$$elements.type" data-ng-model="$$entity.type" data-ng-change="$$layout.typeList.change()"></input-element>
+            </label>
+        </div>
+        <div class="small-5 columns">
+            <label>
+                {{$$elements.name.title}}
+                <input-element data-element-type="text" data-element="$$elements.name" data-ng-model="$$entity.name"></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row" data-ng-hide="$$layout.typeList.tag">
+        <div class="small-1 columns text-left">
+            <label>&nbsp;</label>
+            <button class="button postfix" data-ng-click="$$layout.updateId()" title="Normalizar identificador con su padre">
+                <i class="fa fa-copy fa-lg"></i>
+            </button>
+        </div>
+        <div class="small-11 columns">
+            <div class="row">
+                <div class="small-3 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.handler.title}}
+                        </label>
+                        <div class="small-10 columns">
+                            <input-element data-element-type="text" data-element="$$elements.handler" data-ng-model="$$entity.handler"></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix"><i class="fa fa-gears fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-3 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.action.title}}
+                        </label>
+                        <div class="small-10 columns">
+                            <input-element data-element-type="text" data-element="$$elements.action" data-ng-model="$$entity.action"></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix"><i class="fa fa-key fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-3 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.runMode.title}}
+                        </label>
+                        <div class="small-10 columns">
+                            <input-element data-element-type="select" data-element="$$elements.runMode" data-ng-model="$$entity.run_mode" data-ng-change="$$layout.runModeList.change();"></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix"><i class="fa fa-th fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-3 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.access.title}}
+                        </label>
+                        <input-element data-element-type="select" data-element="$$elements.access" data-ng-model="$$entity.access"></input-element>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns panel callout">
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.title.title}}
+                        </label>
+                        <div class="small-11 columns">
+                            <input-element data-element-type="text" data-element="$$elements.title" data-ng-model="$$entity.title"></input-element>
+                        </div>
+                        <div class="small-1 columns">
+                            <span class="postfix"><i class="fa fa-book fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-ng-hide="$$layout.typeList.tag">
+                <div class="small-2 columns text-left">
+                    <input-element data-element-type="switch" data-element="$$elements.showInMenu" data-ng-model="$$entity.show_in_menu"></input-element>
+                </div>
+                <div class="small-2 columns text-left end">
+                    <input-element data-element-type="switch" data-element="$$elements.confirm" data-ng-model="$$entity.confirm"></input-element>
+                </div>
+                <div class="small-2 columns text-left end" data-ng-show="$$layout.runModeList.dialog">
+                    <input-element data-element-type="switch" data-element="$$elements.maximized" data-ng-model="$$entity.maximized"></input-element>
+                </div>
+            </div>
+            <div class="row" data-ng-hide="$$layout.typeList.tag || $$layout.runModeList.hidden">
+                <div class="small-6 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.controllerName.title}}
+                        </label>
+                        <div class="small-10 columns">
+                            <input-element data-element-type="text" data-element="$$elements.controllerName" data-ng-model="$$entity.controller_name"></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix"><i class="fa fa-code fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-6 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.template.title}}
+                        </label>
+                        <div class="small-10 columns">
+                            <input-element data-element-type="text" data-element="$$elements.template" data-ng-model="$$entity.template"></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <span class="postfix"><i class="fa fa-code fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" data-ng-hide="$$layout.typeList.tag">
+                <div class="small-12 columns">
+                    <div class="row collapse">
+                        <label>
+                            {{$$elements.contextStates.title}}
+                        </label>
+                        <div class="small-11 columns">
+                            <input-element data-element-type="text" data-element="$$elements.contextStates" data-ng-model="$$entity.context_states"></input-element>
+                        </div>
+                        <div class="small-1 columns">
+                            <span class="postfix"><i class="fa fa-code fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description" rows="4"></input-element>
+            </label>
+        </div>
+    </div>
+</form-handler>

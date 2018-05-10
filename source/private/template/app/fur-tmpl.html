@@ -1,0 +1,313 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row">
+                <div class="small-12 columns panel">
+                    <h4>Informacion del accidentado</h4>
+                    <div class="row">
+                        <div class="small-6 columns">
+                            Condicion del accidentado
+                        </div>
+                        <div class="small-3 columns">
+                            <input-element data-element-type="switch" data-element="$$elements.patient_condition_walker" data-ng-model="$$entity.patient_condition_walker" data-ng-change="$$entity.patient_condition_occupant = !$$entity.patient_condition_walker"></input-element>
+                        </div>
+                        <div class="small-3 columns">
+                            <input-element data-element-type="switch" data-element="$$elements.patient_condition_occupant" data-ng-model="$$entity.patient_condition_occupant" data-ng-change="$$entity.patient_condition_walker = !$$entity.patient_condition_occupant"></input-element>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns panel">
+                    <h4>Identificacion del accidente</h4>
+                    <div class="row">
+                        <div class="small-6 columns">
+                            <label>
+                                {{$$elements.accident_address.title}}
+                                <input-element data-element-type="text" data-element="$$elements.accident_address" data-ng-model="$$entity.accident_address"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns">
+                            <label>
+                                {{$$elements.accident_date.title}}
+                                <input-element data-element-type="date" data-element="$$elements.accident_date" data-ng-model="$$entity.accident_date" max="{{$$layout.curDate| date:'yyyy-MM-dd'}}"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns">
+                            Hora
+                            <div class="row collapse">
+                                <div class="small-6 columns">
+                                    <input-element data-element-type="select" data-element="$$elements.accident_hour" data-ng-model="$$entity.accident_hour"></input-element>
+                                </div>
+                                <div class="small-6 columns">
+                                    <input-element data-element-type="select" data-element="$$elements.accident_minute" data-ng-model="$$entity.accident_minute"></input-element>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label>
+                                {{$$elements.accident_province.title}}
+                                <input-element data-element-type="select" data-element="$$elements.accident_province" data-ng-model="$$entity.accident_province"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns">
+                            <label>
+                                {{$$elements.accident_canton.title}}
+                                <input-element data-element-type="select" data-element="$$elements.accident_canton" data-ng-model="$$entity.accident_canton"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns">
+                            <label>
+                                {{$$elements.accident_parish.title}}
+                                <input-element data-element-type="select" data-element="$$elements.accident_parish" data-ng-model="$$entity.accident_parish"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns">
+                            <label>
+                                {{$$elements.accident_neighborhood.title}}
+                                <input-element data-element-type="text" data-element="$$elements.accident_neighborhood" data-ng-model="$$entity.accident_neighborhood"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <label>
+                                {{$$elements.accident_report.title}}
+                                <input-element data-element-type="textarea" data-element="$$elements.accident_report" data-ng-model="$$entity.accident_report"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns panel">
+                    <h4>Información del vehiculo</h4>
+                    <div class="row">
+                        <!--div class="small-2 columns">
+                            <input-element data-element-type="switch" data-element="$$elements.vehicle_insured" data-ng-model="$$entity.vehicle_insured"></input-element>
+                        </div-->
+                        <div class="small-2 columns">
+                            <input-element data-element-type="switch" data-element="$$elements.vehicle_insured" data-ng-model="$$entity.vehicle_insured" data-ng-change="$$entity.vehicle_not_identified = !$$entity.vehicle_insured"></input-element>
+                        </div>
+                        <div class="small-2 columns">
+                            <input-element data-element-type="switch" data-element="$$elements.vehicle_not_identified" data-ng-model="$$entity.vehicle_not_identified" data-ng-change="$$entity.vehicle_insured = !$$entity.vehicle_not_identified"></input-element>
+                        </div>
+                        <div class="small-8 columns" ng-show="$$entity.vehicle_insured">
+                            <label>
+                                Placa del Vehículo
+                                <input-element data-element-type="text" data-element="$$elements.vehicle_license_plate" data-ng-model="$$entity.vehicle_license_plate"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns panel">
+                    <h4>Atención medica del asegurado - En el servicio de salud</h4><br/>
+                    <div class="row">
+                        <div class="small-4 columns">
+                            <label>
+                                Fecha de ingreso
+                                <input-element data-element-type="date" readonly data-element="$$elements.health_center_admision_date" data-ng-model="$$entity.health_center_admision_date" max="{{$$layout.curDate| date:'yyyy-MM-dd'}}"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <label>
+                                {{$$elements.health_center_egress_date.title}}
+                                <input-element data-element-type="date" ng-change="updateHealthCenterHospCareDays()" data-element="$$elements.health_center_egress_date" data-ng-model="$$entity.health_center_egress_date" min="{{$$layout.curDate| date:'yyyy-MM-dd'}}" max="{{$$layout.fechaMaximaHospitalizacion| date:'yyyy-MM-dd'}}"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <label>
+                                {{$$elements.health_center_history_number.title}}
+                                <input-element data-element-type="text" data-element="$$elements.health_center_history_number" data-ng-model="$$entity.health_center_history_number" data-ng-readonly="true"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns small-centered panel">
+                            Tipo de ingreso
+                            <div class="row">
+                                <div class="small-3 columns">
+                                    <input-element data-element-type="switch" data-element="$$elements.health_center_ambulatory_care" data-ng-model="$$entity.health_center_ambulatory_care" data-ng-change="$$entity.health_center_hosp_care = !$$entity.health_center_ambulatory_care"></input-element>
+                                </div>
+                                <div class="small-3 columns">
+                                    <input-element data-element-type="switch" data-element="$$elements.health_center_hosp_care" data-ng-model="$$entity.health_center_hosp_care" data-ng-change="$$entity.health_center_ambulatory_care = !$$entity.health_center_hosp_care"></input-element>
+                                </div>
+                                <div class="small-3 columns end" data-ng-show="$$elements.health_center_hosp_care_days.required">
+                                    <label>
+                                        {{$$elements.health_center_hosp_care_days.title}}
+                                        <input-element data-element-type="decimal" data-element="$$elements.health_center_hosp_care_days" data-ng-model="$$entity.health_center_hosp_care_days" readonly></input-element>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <label>
+                                        {{$$elements.description.title}}
+                                        <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description"></input-element>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{$$elements.health_center_admision_report.title}} <b>(Informe de ingreso)</b>
+                        <div class="small-12 columns">
+                            <select multiple ng-model="$$entity.health_center_admision_report2" ng-options="item as '' + item.c + ' - ' + item.d  for item in $$layout.cei10 track by item.d" ng-change="$$tinyEntity.populate()"></select>
+                        </div>
+                    </div>                    
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <label>
+                                {{$$elements.health_center_egress_report.title}} <b>(Informe de egreso)</b>
+                                <input-element data-element-type="textarea" data-element="$$elements.health_center_egress_report" data-ng-model="$$entity.health_center_egress_report"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns panel">
+                    <h4>Atención medica del asegurado - Referencia</h4><br/>
+                    <div class="row">
+                        Asegurado Referido de:<br/>
+                        <div class="small-5 columns">
+                            <label>
+                                {{$$elements.health_center_referred_fr.title}}
+                                <input-element data-element-type="text" data-element="$$elements.health_center_referred_fr" data-ng-model="$$entity.health_center_referred_fr"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <label>
+                                {{$$elements.health_center_referred_fr_city.title}}
+                                <input-element only-letters data-element-type="text" data-element="$$elements.health_center_referred_fr_city" data-ng-model="$$entity.health_center_referred_fr_city"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns end">
+                            <label>
+                                {{$$elements.health_center_referred_fr_date.title}}
+                                <input-element data-element-type="date" data-element="$$elements.health_center_referred_fr_date" data-ng-model="$$entity.health_center_referred_fr_date" max="{{$$layout.curDate| date:'yyyy-MM-dd'}}"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        Asegurado Referido a:<br/>
+                        <div class="small-5 columns">
+                            <label>
+                                {{$$elements.health_center_referred_to.title}}
+                                <input-element data-element-type="text" data-element="$$elements.health_center_referred_to" data-ng-model="$$entity.health_center_referred_to"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <label>
+                                {{$$elements.health_center_referred_to_city.title}}
+                                <input-element only-letters data-element-type="text" data-element="$$elements.health_center_referred_to_city" data-ng-model="$$entity.health_center_referred_to_city"></input-element>
+                            </label>
+                        </div>
+                        <div class="small-3 columns end">
+                            <label>
+                                {{$$elements.health_center_referred_to_date.title}}
+                                <input-element data-element-type="date" data-element="$$elements.health_center_referred_to_date" data-ng-model="$$entity.health_center_referred_to_date" max="{{$$layout.curDate| date:'yyyy-MM-dd'}}"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns panel">
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <h4>Fallecimiento del asegurado</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-4 columns end">
+                            <input-element data-element-type="switch" data-element="$$elements.insured_dead" data-ng-model="$$entity.insured_dead"></input-element>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="$$entity.insured_dead">
+                        <div class="small-12 columns">
+                            <div class="row">
+                                <div class="small-6 columns">
+                                    <label>
+                                        {{$$elements.insured_dead_basic_reazon.title}}
+                                        <input-element data-element-type="text" data-element="$$elements.insured_dead_basic_reazon" data-ng-model="$$entity.insured_dead_basic_reazon"></input-element>
+                                    </label>
+                                </div>
+                                <div class="small-6 columns">
+                                    <label>
+                                        {{$$elements.insured_dead_direct_reazon.title}}
+                                        <input-element data-element-type="text" data-element="$$elements.insured_dead_direct_reazon" data-ng-model="$$entity.insured_dead_direct_reazon"></input-element>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-6 columns">
+                                    Fecha y hora de la muerte
+                                    <div class="row collapse">
+                                        <div class="small-6 columns">
+                                            <input-element data-element-type="date" data-element="$$elements.insured_dead_date" data-ng-model="$$entity.insured_dead_date" max="{{$$layout.curDate| date:'yyyy-MM-dd'}}"></input-element>
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <input-element data-element-type="select" data-element="$$elements.insured_dead_hour" data-ng-model="$$entity.insured_dead_hour"></input-element>
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <input-element data-element-type="select" data-element="$$elements.insured_dead_minute" data-ng-model="$$entity.insured_dead_minute"></input-element>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="small-6 columns">
+                                    <div class="row collapse">
+                                        <label>
+                                            {{$$elements.insured_dead_in_charge_doctor.title}}
+                                        </label>
+                                        <div class="small-11 columns">
+                                            <ui-select data-ng-model="$$entity.insured_dead_in_charge_doctor" data-select2-element="$$elements.insured_dead_in_charge_doctor">
+                                                <ui-select-match placeholder="Medico...">
+                                                    {{$select.selected.first_name}} {{$select.selected.last_name}}
+                                                </ui-select-match>
+                                                <ui-select-choices data-repeat="data in $$layout.doctorList.data | filter: { first_name : $select.search } | orderBy: '+first_name'">
+                                                    {{data.first_name}} {{data.last_name}}
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                        <div class="small-1 columns">
+                                            <button-icon class="button postfix secondary" data-perform-action="$$operations.retrieveDoctorList" data-auto-play data-acknowledgement="false" data-callback="$$layout.doctorList.populate($$data)"></button-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <div class="row collapse">
+                                        <label>
+                                            {{$$elements.insured_dead_authorizer_doctor.title}}
+                                        </label>
+                                        <div class="small-11 columns">
+                                            <ui-select data-ng-model="$$entity.insured_dead_authorizer_doctor" data-select2-element="$$elements.insured_dead_authorizer_doctor">
+                                                <ui-select-match placeholder="Medico...">
+                                                    {{$select.selected.first_name}} {{$select.selected.last_name}}
+                                                </ui-select-match>
+                                                <ui-select-choices data-repeat="data in $$layout.doctorList.data | filter: { first_name : $select.search } | orderBy: '+first_name'">
+                                                    {{data.first_name}} {{data.last_name}}
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                        <div class="small-1 columns">
+                                            <button-icon class="button postfix secondary" data-perform-action="$$operations.retrieveDoctorList" data-acknowledgement="false" data-callback="$$layout.doctorList.populate($$data)"></button-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<span data-custom-valiadation="$$layout.validateHospitalizationDays()"></span>-->
+</form-handler>

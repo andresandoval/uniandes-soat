@@ -1,0 +1,76 @@
+@mixin full_calc($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression}) !important;
+    min-#{$property}: -webkit-calc(#{$expression}) !important;
+    max-#{$property}: -webkit-calc(#{$expression}) !important;
+    #{$property}: calc(#{$expression}) !important;
+    min-#{$property}: calc(#{$expression}) !important;
+    max-#{$property}: calc(#{$expression}) !important;
+}
+
+@mixin full_size($property, $expression) {
+    #{$property}: #{$expression} !important;
+    min-#{$property}: #{$expression} !important;
+    max-#{$property}: #{$expression} !important;
+}
+@mixin no_extra_size() {
+    margin: 0px !important;
+    padding: 0px !important;
+    border: 0px !important;
+}
+
+@mixin no_select() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:  default;
+}
+
+@mixin left-linear-gradient($color1, $percent1, $color2, $percent2){
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff3333+0,ffffff+20 */
+    background: $color1; /* Old browsers */
+    background: -moz-linear-gradient(left,  $color1 $percent1, $color2 $percent2); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop($percent1,$color1), color-stop($percent2,$color2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  $color1 $percent1,$color2 $percent2); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  $color1 $percent1,$color2 $percent2); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  $color1 $percent1,$color2 $percent2); /* IE10+ */
+    background: linear-gradient(to right,  $color1 $percent1,$color2 $percent2); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{$color1}, endColorstr=#{$color2},GradientType=1 ); /* IE6-9 */
+}
+
+@mixin fa-placeholder($icon){
+
+    &::-webkit-input-placeholder::before{
+        font-family: fontAwesome;
+        content:$icon;
+        color: inherit;
+        font-size: inherit;
+        margin-right: 5px;
+    }
+
+    &::-moz-placeholder::before{ /* firefox 19+ */
+        font-family: fontAwesome;
+        content:$icon;
+        color: inherit;
+        font-size: inherit;
+        margin-right: 5px;
+    }
+
+    &:-ms-input-placeholder::before{ /* ie */
+        font-family: fontAwesome;
+        content:$icon;
+        color: inherit;
+        font-size: inherit;
+        margin-right: 5px;
+    }
+
+    &:-moz-placeholder::before {
+        font-family: fontAwesome;
+        content:$icon;
+        color: inherit;
+        font-size: inherit;
+        margin-right: 5px;
+    }
+}

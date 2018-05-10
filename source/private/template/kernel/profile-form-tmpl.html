@@ -1,0 +1,26 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-10 columns">
+            <label>
+                {{$$elements.name.title}}
+                <input-element data-element-type="text" data-element="$$elements.name" data-ng-model="$$entity.name"></input-element>
+            </label>
+        </div>
+        <div class="small-2 columns text-left">
+            <input-element data-element-type="switch" data-element="$$elements.active" data-ng-model="$$entity.active"></input-element>
+        </div>
+    </div>
+    <div class="row no-select">
+        <div class="small-12 columns panel callout" style="min-height: 300px;">
+            <profile-action-tree data-expand-action="$$operations.retrieveActionList" data-profile-identifier="$$entity.identifier" data-model="$$entity.actions" data-height="300" data-custom-valiadation="$$elements.actions()"></profile-action-tree>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description" rows="4"></input-element>
+            </label>
+        </div>
+    </div>
+</form-handler>

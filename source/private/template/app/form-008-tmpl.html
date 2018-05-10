@@ -1,0 +1,96 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-12 columns small-centered">
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <h5>Registro de admisión</h5><hr/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-9 columns small-centered">
+                    <div class="row collapse">
+                        <label>{{$$elements.patient_identificaion.title}}</label>
+                        <div class="small-9 columns">
+                            <ui-select data-ng-model="$$entity.patient_identificaion" data-select2-element="$$elements.patient_identificaion">
+                                <ui-select-match placeholder="Elegir paciente...">
+                                    {{$select.selected.identificacion}} : {{$select.selected.primer_nombre}} {{$select.selected.segundo_nombre}} {{$select.selected.apellido_paterno}} {{$select.selected.apellido_materno}}
+                                </ui-select-match>
+                                <ui-select-choices data-repeat="data in $$layout.patientList.data | filter: $select.search | orderBy: '+apellido_paterno'">
+                                    <span data-compile-unsafe-html="data.identificacion | $$boldMatch : $select.search"></span> : {{data.primer_nombre}} {{data.segundo_nombre}} {{data.apellido_paterno}} {{data.apellido_materno}}
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                        <div class="small-1 columns">
+                            <button class="button primary postfix radius" data-ng-click="$$layout.patientList.populate()">
+                                <i class="fa fa-refresh fa-lg" data-ng-class="$$layout.patientList.loading && 'fa-spin'"></i>
+                            </button>
+                        </div>
+                        <div class="small-1 columns small-offset-1">
+                            <button-icon class="button postfix success radius" data-perform-action="$$operations.addPatient" data-acknowledgement="false" data-callback="$$layout.patientList.populate"></button-icon>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-6 columns small-centered">
+                            <label>
+                                {{$$elements.insurance.title}}
+                                <input-element data-element-type="select" data-element="$$elements.insurance" data-ng-model="$$entity.insurance"></input-element>
+                            </label>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="row" data-ng-hide="$$entity.patient_identificaion === null">
+                <div class="small-12 columns panel">
+                    <table class="form-008-detalle">
+                        <tr>
+                            <th>Primer nombre</th>
+                            <td>{{$$entity.patient_identificaion.primer_nombre}}</td>
+                            <th>Segundo nombre</th>
+                            <td>{{$$entity.patient_identificaion.segundo_nombre}}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido paterno</th>
+                            <td>{{$$entity.patient_identificaion.apellido_paterno}}</td>
+                            <th>Apellido materno</th>
+                            <td>{{$$entity.patient_identificaion.apellido_materno}}</td>
+                        </tr>
+                    </table>
+                    <table class="form-008-detalle">
+                        <tr>
+                            <th>Direccion</th>
+                            <td colspan="5">{{$$entity.patient_identificaion.direccion}}</td>
+                        </tr>
+                        <tr>
+                            <th>Provincia</th>
+                            <td>{{$$entity.patient_identificaion.provincia}}</td>
+                            <th>Canton</th>
+                            <td>{{$$entity.patient_identificaion.canton}}</td>
+                            <th>Parroquia</th>
+                            <td>{{$$entity.patient_identificaion.parroquia}}</td>
+                        </tr>
+                        <tr>
+                            <th>Zona</th>
+                            <td>{{$$entity.patient_identificaion.zona}}</td>
+                            <th>Barrio</th>
+                            <td>{{$$entity.patient_identificaion.barrio}}</td>
+                            <th>Telefono</th>
+                            <td>{{$$entity.patient_identificaion.telefono}}</td>
+                        </tr>
+                    </table>
+                    <table class="form-008-detalle">
+                        <tr>
+                            <th>Fecha de nacimiento</th>
+                            <td>{{$$entity.patient_identificaion.fecha_nacimiento}}</td>
+                            <th>Lugar de nacimiento</th>
+                            <td>{{$$entity.patient_identificaion.lugar_nacimiento}}</td>
+                            <th>Nacionalidad</th>
+                            <td>{{$$entity.patient_identificaion.nacionalidad}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form-handler>

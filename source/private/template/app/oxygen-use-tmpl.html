@@ -1,0 +1,127 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-12 columns small-centered">
+            <div class="row">
+                <div class="small-12 columns" style="font-weight: bold">
+                    CÁLCULO DE OXIGENO
+                </div>
+            </div>
+            <hr/>
+            <div class="row panel">
+                <div class="small-12 columns">
+                    <div class="row">
+                        <div class="small-9 columns">
+                            <div class="row">
+                                <div class="small-6 columns">
+                                    Fecha y hora de inicio
+                                    <div class="row collapse">
+                                        <div class="small-6 columns">
+                                            <input-element data-element-type="date" data-element="$$elements.start_date" data-ng-model="$$entity.start_date" min="{{$$layout.minDate | date:'yyyy-MM-dd'}}" max="{{$$layout.maxDate | date:'yyyy-MM-dd'}}"></input-element>
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <input-element data-element-type="select" data-element="$$elements.start_hour" data-ng-model="$$entity.start_hour"></input-element>
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <input-element data-element-type="select" data-element="$$elements.start_minute" data-ng-model="$$entity.start_minute"></input-element>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="small-6 columns" data-ng-show="$$layout.validStartDateTime">
+                                    Fecha y hora de fin
+                                    <div class="row collapse">
+                                        <div class="small-6 columns">
+                                            <input-element data-element-type="date" data-element="$$elements.end_date" data-ng-model="$$entity.end_date" min="{{$$entity.start_date | date:'yyyy-MM-dd'}}" max="{{$$layout.maxDate | date:'yyyy-MM-dd'}}"></input-element>
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <input-element data-element-type="select" data-element="$$elements.end_hour" data-ng-model="$$entity.end_hour"></input-element>
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <input-element data-element-type="select" data-element="$$elements.end_minute" data-ng-model="$$entity.end_minute"></input-element>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-3 columns panel" data-ng-show="$$layout.validStartDateTime && $$layout.validEndDateTime">
+                            Total tiempo:<br/>
+                            {{$$entity.diff_hour}}HH + {{$$entity.diff_minute}}Min = {{$$entity.total_minute}}Min (TM)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row" data-ng-show="$$layout.validStartDateTime && $$layout.validEndDateTime">
+        <div class="small-12 columns panel">
+            <div class="row" style="border-bottom: 1px solid #aaa">
+                <div class="small-8 columns">
+                    <div class="row collapse">
+                        <div class="small-8 columns">
+                            <label>
+                                Concepto
+                                <input type="text" readonly value="{{$$entity.oxygen_code}} - {{$$entity.oxygen_description}}">
+                            </label>
+                        </div>
+                        <div class="small-4 columns">
+                            <div class="row collapse">
+                                <div class="small-4 columns">
+                                    <label>
+                                        UVR
+                                        <input type="text" readonly value="{{$$entity.uvr}}">
+                                    </label>
+                                </div>
+                                <div class="small-4 columns">
+                                    <label>
+                                        FCM
+                                        <input type="text" readonly value="{{$$entity.fcm}}">
+                                    </label>
+                                </div>
+                                <div class="small-4 columns">
+                                    <label>
+                                        VI
+                                        <input type="text" readonly value="{{$$entity.value}}">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-2 columns">
+                    <label>
+                        {{$$elements.lm.title}}
+                        <input-element data-element-type="decimal" data-element="$$elements.lm" data-ng-model="$$entity.lm" maxlength='2'></input-element>
+                    </label>
+                </div>
+                <div class="small-2 columns">
+                    <label>
+                        STI (VI*LM)
+                        <input type="text" readonly value="{{$$entity.lm * $$entity.value}}">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-9 columns">
+                    <label>
+                        {{$$elements.description.title}}
+                        <input-element data-element-type="text" data-element="$$elements.description" data-ng-model="$$entity.description"></input-element>
+                    </label>
+                </div>
+                <div class="small-3 columns">
+                    <div class="row">
+                        <div class="small-4 columns text-right">
+                            <br/>
+                            <label>TOTAL (ST*TM):</label>
+                        </div>
+                        <div class="small-8 columns">
+                            <label>
+                                <br>
+                                <input type="text" readonly value="{{$$entity.total| currency:'USD $'}}"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form-handler>

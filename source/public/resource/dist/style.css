@@ -1,0 +1,20 @@
+/*
+    Created on : 03/09/2015, 10:10:13
+    Author     : andres.sandoval
+*/
+
+@import "../vendor/jquery-ui-1.11.3/jquery-ui.min.css";
+/*@import "../vendor/vakata-jstree-9770c67/dist/themes/default/style.min.css";*/
+@import "../vendor/jstree-bootstrap-theme-master/dist/themes/proton/style.min.css";
+@import "../vendor/alertifyjs-1.4.1/css/alertify.min.css";
+@import "../vendor/alertifyjs-1.4.1/css/themes/semantic.min.css";
+@import "../vendor/foundation-5.5.1/css/foundation.min.css";
+@import "../vendor/font-awesome-4.4.0/css/font-awesome.min.css";
+@import "../vendor/angular-ui/ui-select/select.min.css";
+@import "../vendor/angular-ui/ui-select/select2-foundation.min.css";
+@import "../vendor/angular-ui/angular-loading-bar/loading-bar.css";
+@import "../vendor/animate-css/animate.css";
+@import "../vendor/angular-timeline/angular-timeline.css";
+@import "../vendor/hover-css/hover.css";
+
+@import "../src/css/style.css";

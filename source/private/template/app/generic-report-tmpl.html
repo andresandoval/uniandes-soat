@@ -1,0 +1,49 @@
+<div style="width: 100%; height: 100%;">
+    <div class="row" style="height:70px;">
+        <div class="small-3 columns small-offset-3">
+            <label>
+                Desde:
+                <input type="date" ng-model="$$entity.desde" data-ng-change="$$layout.changeSrc()"/>
+            </label>
+        </div>
+        <div class="small-3 columns end">
+            <label>
+                Hasta:
+                <input type="date" ng-model="$$entity.hasta" min="{{$$entity.desde | date:'yyyy-MM-dd'}}" data-ng-change="$$layout.changeSrc()"/>
+            </label>
+        </div>        
+    </div>
+    <div class="row" style="height: calc(100% - 100px);" data-ng-if="$$layout.src !== null">
+        <div class="small-12 columns text-center" style="height: 100%; width: 100%; text-align: center">
+            <iframe id="printIframe" name="printIframe"  data-ng-src="{{$$layout.src}}" frameborder="0" style="width: 100%; height: 100%; border: 0; margin: 0; padding: 0;" frameborder="0" height="100%" width="100%"></iframe>
+        </div>
+    </div>
+    <div class="row" data-ng-if="$$layout.src === null">
+        <div class="small-11 small-centered columns panel callout text-center">
+            Debes seleccionar un rango de fecha y un tipo de reporte... {{$$layout.src}}
+        </div>
+    </div>
+    <div class="row" style="height: 30px">
+        <div class="small-4 column small-centered">
+            <div class="row">
+                <div class="small-4 columns text-center" ng-class="$$layout.csv === null && 'small-offset-2'">
+                    <a class="button primary round tiny expand" data-ng-click="$$layout.printIframe()" style="margin-top: 5px">
+                        <i class="fa fa-print fa-lg"></i>
+                    </a>
+                </div>
+                <div class="small-4 columns text-center" ng-if="$$layout.csv !== null">
+                        <a class="button success round tiny expand" data-ng-href="{{$$layout.csv}}" style="margin-top: 5px" download="reporte.csv">
+                        <i class="fa fa-file-excel-o fa-lg"></i>
+                    </a>
+                </div>
+                <div class="small-4 columns text-center end">
+                    <a class="button warning round tiny expand" ng-href="{{$$layout.src}}" target="_blank" style="margin-top: 5px">
+                        <i class="fa fa-external-link fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

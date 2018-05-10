@@ -1,0 +1,9 @@
+Combos de provincia, canton etc...
+
+Form unico de reclamaciones
+
+validacion fecha nacimiento
+
+Combos estado civil e instruccion
+
+Fecha de admision auto

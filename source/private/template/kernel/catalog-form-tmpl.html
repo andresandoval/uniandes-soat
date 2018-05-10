@@ -1,0 +1,42 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-10 columns">
+            <label data-ng-show="$$layout.selectTypeOp">
+                {{$$elements.typeSelect.title}}
+                <input-element data-element-type="select" data-element="$$elements.typeSelect" data-ng-model="$$entity.type"></input-element>
+            </label>
+            <label data-ng-show="!$$layout.selectTypeOp">
+                {{$$elements.typeText.title}}
+                <input-element data-element-type="text" data-element="$$elements.typeText" data-ng-model="$$entity.type"></input-element>
+            </label>
+        </div>
+        <div class="small-1 columns">
+            <input-element data-element-type="switch" data-element="$$elements.selectTypeOp" data-ng-model="$$layout.selectTypeOp"></input-element>
+        </div>
+        <div class="small-1 columns">
+            <input-element data-element-type="switch" data-element="$$elements.active" data-ng-model="$$entity.active"></input-element>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-6 columns end">
+            <label>
+                {{$$elements.name.title}}
+                <input-element data-element-type="text" data-element="$$elements.name" data-ng-model="$$entity.name"></input-element>
+            </label>
+        </div>
+        <div class="small-6 columns end">
+            <label>
+                {{$$elements.value.title}}
+                <input-element data-element-type="text" data-element="$$elements.value" data-ng-model="$$entity.value"></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description" rows="4"></input-element>
+            </label>
+        </div>
+    </div>
+</form-handler>

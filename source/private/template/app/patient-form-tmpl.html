@@ -1,0 +1,239 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row panel callout">
+        <div class="small-2 columns text-left" data-ng-show="$$elements.nuevo">
+            <input-element data-element-type="switch" data-element="$$elements.idType" data-ng-model="$$elements.is_passport"></input-element>
+        </div>
+        <div class="small-10 columns" data-ng-show="$$elements.nuevo && $$elements.is_passport">
+            <label>
+                {{$$elements.passport.title}}
+                <input-element data-element-type="text" data-element="$$elements.passport" data-ng-model="$$entity.pasaporte" data-pasport style="text-transform: uppercase;" maxlength="10"></input-element>
+            </label>
+        </div>
+        <div class="small-10 columns" ng-show="!$$elements.is_passport">
+            <label>
+                {{$$elements.identificacion.title}}
+                <input-element data-element-type="ci" data-ng-readonly="!$$elements.nuevo" data-element="$$elements.identificacion" data-ng-model="$$entity.identificacion" data-only-numbers></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns panel">
+            <div class="row">
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.primer_nombre.title}}
+                        <input-element only-letters data-element-type="text" data-element="$$elements.primer_nombre" data-ng-model="$$entity.primer_nombre"></input-element>
+                    </label>
+                </div>
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.segundo_nombre.title}}
+                        <input-element only-letters data-element-type="text" data-element="$$elements.segundo_nombre" data-ng-model="$$entity.segundo_nombre"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.apellido_paterno.title}}
+                        <input-element only-letters data-element-type="text" data-element="$$elements.apellido_paterno" data-ng-model="$$entity.apellido_paterno"></input-element>
+                    </label>
+                </div>
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.apellido_materno.title}}
+                        <input-element only-letters data-element-type="text" data-element="$$elements.apellido_materno" data-ng-model="$$entity.apellido_materno"></input-element>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns panel callout">
+            <div class="row">
+                <div class="small-12 columns">
+                    <label>
+                        {{$$elements.direccion.title}}
+                        <input-element data-element-type="text" data-element="$$elements.direccion" data-ng-model="$$entity.direccion"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.provincia.title}}
+                        <input-element data-element-type="select" data-element="$$elements.provincia" data-ng-model="$$entity.provincia" data-ng-change="$$layout.updateCanton"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.canton.title}}
+                        <input-element data-element-type="select" data-element="$$elements.canton" data-ng-model="$$entity.canton" data-ng-change="$$layout.updateParroquia"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.parroquia.title}}
+                        <input-element data-element-type="select" data-element="$$elements.parroquia" data-ng-model="$$entity.parroquia"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.zona.title}}
+                        <input-element data-element-type="text" data-element="$$elements.zona" data-ng-model="$$entity.zona"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.barrio.title}}
+                        <input-element data-element-type="text" data-element="$$elements.barrio" data-ng-model="$$entity.barrio"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.telefono.title}}
+                        <input-element data-element-type="text" only-numbers data-element="$$elements.telefono" data-ng-model="$$entity.telefono"></input-element>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns panel">
+            <div class="row">
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.fecha_nacimiento.title}}
+                        <input-element data-element-type="date" data-element="$$elements.fecha_nacimiento" data-ng-model="$$entity.fecha_nacimiento" data-ng-change="$$layout.setAge()" max="{{$$entity.fecha_admision | date:'yyyy-MM-dd'}}"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.lugar_nacimiento.title}}
+                        <input-element only-letters data-element-type="text" data-element="$$elements.lugar_nacimiento" data-ng-model="$$entity.lugar_nacimiento"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.nacionalidad.title}}
+                        <input-element data-element-type="select" data-element="$$elements.nacionalidad" data-ng-model="$$entity.nacionalidad"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.grupo_cultural.title}}
+                        <input-element data-element-type="select" data-element="$$elements.grupo_cultural" data-ng-model="$$entity.grupo_cultural"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.edad.title}}
+                        <input-element  data-element-type="text" data-element="$$elements.edad" data-ng-model="$$entity.edad"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.genero.title}}
+                        <input-element data-element-type="select" data-element="$$elements.genero" data-ng-model="$$entity.genero"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.estado_civil.title}}
+                        <input-element data-element-type="select" data-element="$$elements.estado_civil" data-ng-model="$$entity.estado_civil"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.instruccion.title}}
+                        <input-element data-element-type="select" data-element="$$elements.instruccion" data-ng-model="$$entity.instruccion"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.fecha_admision.title}}
+                        <input-element readonly data-element-type="date" data-element="$$elements.fecha_admision" data-ng-model="$$entity.fecha_admision"></input-element>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns panel callout">
+            <div class="row">
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.ocupacion.title}}
+                        <input-element data-element-type="select" data-element="$$elements.ocupacion" data-ng-model="$$entity.ocupacion"></input-element>
+                    </label>
+                </div>
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.empresa_trabajo.title}}
+                        <input-element data-element-type="text" data-element="$$elements.empresa_trabajo" data-ng-model="$$entity.empresa_trabajo"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.tipo_seguro_salud.title}}
+                        <input-element data-element-type="select" data-element="$$elements.tipo_seguro_salud" data-ng-model="$$entity.tipo_seguro_salud"></input-element>
+                    </label>
+                </div>
+                <div class="small-6 columns">
+                    <label>
+                        {{$$elements.referido_de.title}}
+                        <input-element data-element-type="text" data-element="$$elements.referido_de" data-ng-model="$$entity.referido_de"></input-element>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns panel">
+            <div class="row">
+                <div class="small-12 columns">
+                    <label>
+                        {{$$elements.contacto_emergencia.title}}
+                        <input-element data-element-type="text" data-element="$$elements.contacto_emergencia" data-ng-model="$$entity.contacto_emergencia"></input-element>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.parentezco_contacto_emergencia.title}}
+                        <input-element data-element-type="select" data-element="$$elements.parentezco_contacto_emergencia" data-ng-model="$$entity.parentezco_contacto_emergencia"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.direccion_contacto_emergencia.title}}
+                        <input-element data-element-type="text" data-element="$$elements.direccion_contacto_emergencia" data-ng-model="$$entity.direccion_contacto_emergencia"></input-element>
+                    </label>
+                </div>
+                <div class="small-4 columns">
+                    <label>
+                        {{$$elements.telefono_contacto_emergencia.title}}
+                        <input-element data-element-type="text" only-numbers data-element="$$elements.telefono_contacto_emergencia" data-ng-model="$$entity.telefono_contacto_emergencia"></input-element>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description" rows="4"></input-element>
+            </label>
+        </div>
+    </div>
+</form-handler>

@@ -1,0 +1,49 @@
+<form-handler data-on-change="$$tinyEntity.populate()" data-submit-action="$$operations.process" data-form-data="$$tinyEntity.data" data-submit-callback="$$refreshLists()" data-close-on-submit>
+    <div class="row">
+        <div class="small-11 columns">
+            <div class="row collapse">
+                <label>
+                    {{$$elements.coordinationIdentifier.title}}
+                </label>
+                <div class="small-11 columns">
+                    <ui-select data-ng-model="$$entity.coordination_identifier" data-select2-element="$$elements.coordinationIdentifier">
+                        <ui-select-match data-placeholder="Coordinación..." data-allow-clear>
+                            {{$select.selected.name}}
+                        </ui-select-match>
+                        <ui-select-choices data-repeat="data in $$layout.coordinationList.data | filter: { name : $select.search } | orderBy: '+name'">
+                            <span data-compile-unsafe-html="data.name | $$boldMatch : $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="small-1 columns">
+                    <button-icon class="button postfix secondary" data-perform-action="$$operations.retrieveCoordinationList" data-auto-play data-acknowledgement="false" data-callback="$$layout.coordinationList.populate($$data)"></button-icon>
+                </div>
+            </div>
+        </div>
+        <div class="small-1 columns">
+            <input-element data-element-type="switch" data-element="$$elements.active" data-ng-model="$$entity.active"></input-element>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-6 columns end">
+            <label>
+                {{$$elements.name.title}}
+                <input-element data-element-type="text" data-element="$$elements.name" data-ng-model="$$entity.name"></input-element>
+            </label>
+        </div>
+        <div class="small-6 columns" data-ng-show="$$elements.code.show()">
+            <label>
+                {{$$elements.code.title}}
+                <input-element data-element-type="label" data-ng-model="$$entity.code"></input-element>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                {{$$elements.description.title}}
+                <input-element data-element-type="textarea" data-element="$$elements.description" data-ng-model="$$entity.description" rows="4"></input-element>
+            </label>
+        </div>
+    </div>
+</form-handler>
